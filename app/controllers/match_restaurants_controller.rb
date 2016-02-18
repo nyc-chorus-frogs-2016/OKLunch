@@ -1,0 +1,2 @@
+class MatchRestaurantsController < ApplicationController
+end

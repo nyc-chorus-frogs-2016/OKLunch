@@ -21,4 +21,7 @@ class User < ActiveRecord::Base
         password: "1234"
       )
   end
+
+  def find_common_interests(usertwo)
+  end
 end

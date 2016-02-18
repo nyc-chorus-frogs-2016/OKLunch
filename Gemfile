@@ -23,6 +23,7 @@ gem 'httparty', '~> 0.13.7'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 gem 'yelp'
+gem "paperclip", "~> 4.2"
 # Use Unicorn as the app server
 # gem 'unicorn'
 

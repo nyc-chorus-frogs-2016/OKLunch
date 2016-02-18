@@ -4,6 +4,7 @@ class CreateMatchUsers < ActiveRecord::Migration
       t.integer :creator_id, null: false
       t.integer :target_id, null: false
       t.string :status, null: false
+      t.boolean :accepted, default: false
       t.timestamps null: false
     end
   end
