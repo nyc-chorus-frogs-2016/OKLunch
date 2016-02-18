@@ -26,6 +26,11 @@ gem 'yelp'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Facebook Login
+gem 'omniauth-facebook'
+# Let's the server listen for realtime changes
+gem 'private_pub'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
