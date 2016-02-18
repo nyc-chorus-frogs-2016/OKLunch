@@ -44,11 +44,12 @@ ActiveRecord::Schema.define(version: 20160218194801) do
   end
 
   create_table "match_users", force: :cascade do |t|
-    t.integer  "creator_id", null: false
-    t.integer  "target_id",  null: false
-    t.string   "status",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "creator_id",                 null: false
+    t.integer  "target_id",                  null: false
+    t.string   "status",                     null: false
+    t.boolean  "accepted",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -70,7 +71,9 @@ ActiveRecord::Schema.define(version: 20160218194801) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                               null: false
+    t.string   "name",                                   null: false
+    t.string   "provider"
+    t.string   "uid"
     t.string   "password_digest",                        null: false
     t.string   "age",                                    null: false
     t.string   "image_file_name"
