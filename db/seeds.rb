@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+20.times do
+User.create!(username: Faker::Name.name, password: "123", age: Faker::Number.number(2), interests: Faker::Hipster.sentences(1), photo: "Not uploaded yet", background_information: Faker::Hipster.paragraph(2))
+end
+
+20.times do
+Restaurant.create!(name: Faker::App.name, address: Faker::Address.street_address, average_rating: Faker::Number.between(1,5), cuisine: Faker::Hipster.words(2), price_range: Faker::Number.positive)
+end
+
+20.times do
+  MatchUser.create!(creator: User.all.sample, target: User.all.sample, status: "Matched")
+end
+
+20.times do
+  MatchRestaurant.create!(user: User.all.sample, restaurant: Restaurant.all.sample)
+end
