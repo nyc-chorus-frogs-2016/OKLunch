@@ -61,7 +61,10 @@ ActiveRecord::Schema.define(version: 20160218161653) do
     t.string   "password_digest",                        null: false
     t.string   "age",                                    null: false
     t.string   "interests",                              null: false
-    t.string   "photo",                                  null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.string   "background_information",                 null: false
     t.boolean  "is_desperate",           default: false
     t.datetime "created_at",                             null: false
