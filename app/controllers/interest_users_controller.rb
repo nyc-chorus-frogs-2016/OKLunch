@@ -1,0 +1,3 @@
+class InterestUsers < ApplicationController
+
+end

@@ -20,3 +20,10 @@ end
 20.times do
   MatchRestaurant.create!(user: User.all.sample, restaurant: Restaurant.all.sample)
 end
+
+20.times do
+  Interest.create!(name: Faker::Hipster.word)
+end
+20.times do
+  InterestUser.create!(user: User.all.sample, interest: Interest.all.sample)
+end
