@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'
 
+match '/auth/:provider/callback', :to => 'sessions#create', :via => [:get, :post]
+match '/auth/failure', :to => 'sessions#failure', :via => [:get, :post]
+
+root 'sessions#new'
 # collection do
 #   get 'match-restaurants'
 # end
