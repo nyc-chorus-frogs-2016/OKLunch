@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'
+  get '/about' => 'pages#about'
+  root 'restaurants#index'
 
 # collection do
 #   get 'match-restaurants'
