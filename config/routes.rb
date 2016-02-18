@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  resources :restaurants, only: [:index, :show] do
+    collection do
+      get 'filtered'
+    end
+  end
+
+  resources :users, only: [:show, :create, :new, :edit, :update, :destroy] do
+    resources :matchrestaurants, only: [:show] do
+    #this is where you match with users
+      resources :matchusers, only: [:show] do
+      #if you and the user match, go to match users show page
+        resources :conversations, only: [:show, :create, :new] do
+          resources :messages, only: [:create, :new] #mby not new
+        end
+      end
+    end
+  end
+     # collection do
+    #   get 'match-restaurants'
+    # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
