@@ -16,6 +16,12 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/register' => 'users#create'
+
      # collection do
     #   get 'match-restaurants'
     # end
