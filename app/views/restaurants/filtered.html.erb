@@ -1,4 +1,5 @@
 <h1> Filtered Restaurants</h1>
+<%if @filtered_restaurants.any?%>
 <% @filtered_restaurants.each do |restaurant| %>
   <ul>
   <li>Name:<%= restaurant.name%></li>
@@ -8,4 +9,6 @@
     <li> Price_range:<%= restaurant.price_range%> </li>
   </ul>
   <%end%>
-
+<%else%>
+	<h2>Your search returned 0 options, please try again</h2>
+<%end%>
