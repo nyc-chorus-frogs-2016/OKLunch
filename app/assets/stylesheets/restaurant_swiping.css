@@ -3,3 +3,7 @@ div#active-restaurant-tile {
   height: 10%;
   background-color: grey;
 }
+
+div#yes-no-buttons {
+  display: none;
+}

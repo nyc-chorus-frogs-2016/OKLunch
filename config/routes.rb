@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create, :new] #mby not new
 
+  resources :swipes, only:[:create]
+
+
+
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'

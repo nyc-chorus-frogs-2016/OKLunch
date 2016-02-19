@@ -17,7 +17,17 @@
 <% end %>
 
 
-<div id ="active-restaurant"></div>
+<div id ="active-restaurant">
+  <div id="yes-no-buttons">
+  <%= form_tag swipes_path do %>
+    <%= submit_tag "Yes", :name => nil %>
+  <% end %>
+
+  <%= form_tag swipes_path do %>
+    <%= submit_tag "No", :name => nil %>
+  <% end %>
+  </div>
+</div>
 
 <a href="#" id="testing-button">CLICK HERE FOR FIRST RESTAURANT</a>
 
