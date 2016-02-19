@@ -71,16 +71,18 @@ ActiveRecord::Schema.define(version: 20160218194801) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                                   null: false
+    t.string   "name"
     t.string   "provider"
     t.string   "uid"
-    t.string   "password_digest",                        null: false
-    t.string   "age",                                    null: false
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "password_digest"
+    t.string   "age"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "background_information",                 null: false
+    t.string   "background_information"
     t.boolean  "is_desperate",           default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
