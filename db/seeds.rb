@@ -1,16 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+response = Yelp.client.search('New York', { term: 'food' })
+
 20.times do
 User.create!(name: Faker::Name.name, password: "123", age: Faker::Number.number(2), background_information: Faker::Hipster.paragraph(2))
 end
 
-20.times do
-Restaurant.create!(name: Faker::App.name, address: Faker::Address.street_address, average_rating: Faker::Number.between(1,5), cuisine: Faker::Hipster.words(2), price_range: Faker::Number.positive)
+response.businesses.each do |business|
+  Restaurant.create!(name: business.name, address: business.location.display_address.join(", "), average_rating: business.rating, cuisine: business.categories.map{|cuisine|cuisine[0]}.join(', '), image_url: business.image_url, phone: business.phone)
 end
 
 20.times do

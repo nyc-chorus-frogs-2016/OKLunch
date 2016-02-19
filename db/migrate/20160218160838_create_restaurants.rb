@@ -5,7 +5,9 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :address, null: false
       t.string :average_rating, null: false
       t.string :cuisine, null: false
-      t.integer :price_range, null: false
+      t.string :image_url, null: false
+      t.string :phone, null: false
+
       t.timestamps null: false
     end
   end
