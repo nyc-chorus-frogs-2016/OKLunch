@@ -5,7 +5,7 @@ User.create!(name: Faker::Name.name, password: "123", age: Faker::Number.number(
 end
 
 response.businesses.each do |business|
-  Restaurant.create!(name: business.name, address: business.location.display_address.join(","), average_rating: business.rating, cuisine: business.categories.flatten.join(","), image_url: business.image_url, phone: business.phone)
+  Restaurant.create!(name: business.name, address: business.location.display_address.join(", "), average_rating: business.rating, cuisine: business.categories.map{|cuisine|cuisine[0]}.join(', '), image_url: business.image_url, phone: business.phone)
 end
 
 20.times do
