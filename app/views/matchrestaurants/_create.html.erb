@@ -1,0 +1,5 @@
+<h1> Congratulations, you matched with <%= @user_restaurant.restaurant%>!</h1>
+	<p> Would you like to:</p>
+	<%= link_to "Search for users now!", matchrestaurant_path(@user_restaurant.id)%> 
+	<p>OR</p>
+	<%= link_to "Keep swiping!", restaurants_path%>
