@@ -15,18 +15,15 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create, :new] #mby not new
 
-
-  resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'
   get '/about' => 'pages#about'
   root 'restaurants#index'
 
-match '/auth/:provider/callback', :to => 'sessions#create', :via => [:get, :post]
-match '/auth/failure', :to => 'sessions#failure', :via => [:get, :post]
+match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
-root 'sessions#new'
 # collection do
 #   get 'match-restaurants'
 # end
