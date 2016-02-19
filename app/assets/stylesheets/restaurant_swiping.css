@@ -1,0 +1,5 @@
+div#active-restaurant-tile {
+  width: 10%;
+  height: 10%;
+  background-color: grey;
+}
