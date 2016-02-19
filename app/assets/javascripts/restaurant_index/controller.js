@@ -9,17 +9,10 @@ Controller.prototype.getNextUnswipedRestaurant = function(){
 
   var options = new Object();
   options.url = '/restaurants/next_unswiped'
-  option.method ='GET'
-  option.dataType = 'json'
-
-  var retrievedRestaurant
-
+  options.method ='GET'
+  options.dataType = 'json'
   $.ajax(options).done(function(response){
-    retrievedRestaurant = response;
-  }).fail(function(response){
-    console.log(response);
+    view.drawRestaurant(response)
   });
-
-  return retreivedRestaurant
 
   };

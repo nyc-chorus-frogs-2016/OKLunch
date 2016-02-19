@@ -1,10 +1,12 @@
 function View(){};
 
 View.prototype.drawRestaurant = function(thisRestaurant){
-  var html = '<h1>THIS IS THE RESTAURANT DETAILS</h1>'
-
+  var html = '<div id="active-restaurant-tile">'
+  html += '<ul>'
+  html += '<li>name:' + thisRestaurant.name + '</li>'
+  html += '<li>cuisine' + thisRestaurant.cuisine + '</li>'
+  html += '</ul></div>'
   $('div#active-restaurant').append(html)
-  debugger;
 }
 
 View.prototype.listenForDrop = function(){
@@ -17,8 +19,9 @@ $(document).ready(function(){
   view.controller = controller;
 
   $('a#testing-button').on("click", function(event){
-    firstRestaurant = controller.getNextUnswipedRestaurant;
-    view.drawRestaurant(firstRestaurant);
+    controller.getNextUnswipedRestaurant();
+    // debugger;
+    // view.drawRestaurant(nextRestaurant);
   });
 
 });
