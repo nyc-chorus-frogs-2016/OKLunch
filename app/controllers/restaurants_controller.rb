@@ -13,9 +13,9 @@ class RestaurantsController < ApplicationController
   end
 
   def filtered
-    search_filter = params[:searchfield]
+    search_filter = params[:searchfield].to_sym
     target = params[:search]
-    @filtered_restaurants = Restaurant.where(search_filter.to_sym => target)
+    @filtered_restaurants = Restaurant.where("#{search_filter} LIKE ?", "%#{target}%")
   end
 
   def next_unswiped
