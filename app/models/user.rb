@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
       uid: auth['uid'],
       name: auth['info']['name'],
       password: "1234"
+        provider: auth['provider'],
+        uid: auth['uid'],
+        name: auth['info']['name'],
+        password: "123"
       )
   end
 
