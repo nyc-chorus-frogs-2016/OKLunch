@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     collection do
       get 'filtered'
     end
+     collection do
+      get 'next_unswiped'
+    end
   end
 
   resources :users, only: [:show, :create, :new, :edit, :update, :destroy]
