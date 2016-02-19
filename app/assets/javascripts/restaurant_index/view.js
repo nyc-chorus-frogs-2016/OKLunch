@@ -10,7 +10,8 @@ View.prototype.drawRestaurant = function(thisRestaurant){
 }
 
 View.prototype.listenForDrop = function(){
-
+    var self = this;
+    $('')
 }
 //take this driver code out
 $(document).ready(function(){
