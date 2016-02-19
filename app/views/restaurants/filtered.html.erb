@@ -1,0 +1,11 @@
+<h1> Filtered Restaurants</h1>
+<% @filtered_restaurants.each do |restaurant| %>
+  <ul>
+  <li>Name:<%= restaurant.name%></li>
+    <li>Cuisine:<%= restaurant.cuisine%></li>
+    <li> Address:<%= restaurant.address%> </li>
+    <li>Average_rating: <%= restaurant.average_rating%> </li>
+    <li> Price_range:<%= restaurant.price_range%> </li>
+  </ul>
+  <%end%>
+

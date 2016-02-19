@@ -1,0 +1,18 @@
+<h1> hello </h1>
+<div id="restaurant-swipe">
+
+</div>
+
+<%= form_tag filtered_restaurants_path, :method => 'get' do %>
+  <p>
+    <select name="searchfield">
+      <option value="name">Restaurant Name</option>
+      <option value="address">Restaurant Address</option>
+      <option value="average_rating"> Restaurant's Average Review Rating</option>
+      <option value="cuisine"> Restaurant's Cuisine </option>
+      <option value="price"> Restaurant's Price Range</option>
+    </select>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Filter Selection", :name => nil %>
+  </p>
+<% end %>
