@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     :foreign_key => "creator_id",
     :association_foreign_key => "target_id")
   has_many :authorizations
+  has_many :swipes
   validates :name, presence: true
   # validates :uid, presence: true, uniqueness: true
   # validates :uid, uniqueness: { scope: :provider }

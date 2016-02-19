@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     collection do
       get 'filtered'
     end
+    collection do
+      get 'next_unswiped'
+    end
   end
 
   resources :users, only: [:show, :create, :new, :edit, :update, :destroy]
@@ -26,7 +29,6 @@ Rails.application.routes.draw do
 match '/auth/:provider/callback', :to => 'sessions#create', :via => [:get, :post]
 match '/auth/failure', :to => 'sessions#failure', :via => [:get, :post]
 
-root 'sessions#new'
 # collection do
 #   get 'match-restaurants'
 # end

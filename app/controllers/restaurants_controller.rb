@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
 
   def index
     unless current_user
-      redirect_to about_path layout: false
+      redirect_to about_path
     end
     @restaurants = Restaurant.all
   end
@@ -16,6 +16,10 @@ class RestaurantsController < ApplicationController
     search_filter = params[:searchfield]
     target = params[:search]
      @filtered_restaurants = Restaurant.where(search_filter.to_sym => target)
+  end
+
+  def next_unswiped
+    render :json => Restaurant.next(current_user).to_json
   end
 
 end
