@@ -14,15 +14,26 @@
       <% end %>
     </div>
   <% end %>
-  <div class="welcome-bar">
-    <% if current_user %>
-       Welcome <%= current_user.name %>
-       <%= link_to 'Log out', session_path, method: :delete %>
-    <% else %>
-       <%= link_to 'Log in', new_session_path %>
-    <% end %>
-    <%= link_to 'Home', root_path %>
-  </div>
+
+  <div id="heading">
+    <div id = "logo">
+      <%= link_to image_tag("http://www.takepart.com/sites/default/files/styles/campaign_news_3x2/public/foodinc_promos_2.jpg?itok=X3v7ZHb6", size:"300x200"), root_path %>
+    </div>
+    <div id="navbar">
+      <% if current_user %>
+          Welcome <%= current_user.name %>
+          <% if @auth  %>
+            <%= image_tag(@auth['info']['image'], size:"25x25") %>
+          <% end %>
+           | <%= link_to 'Log out', session_path, method: :delete %> |
+      <% else %>
+            Login via:
+            <%= link_to image_tag("https://pbs.twimg.com/profile_images/571009371593666560/H8BnOWbx.jpeg", size: "25x25"), login_path %> or
+            <%= link_to image_tag("", size: "25x25"), "/auth/facebook" %> or
+            <%= link_to 'Register', register_path %> |
+       <% end %>
+            <%= link_to 'Home', restaurants_path %>
+    </div>
 <%= yield %>
 
 </body>

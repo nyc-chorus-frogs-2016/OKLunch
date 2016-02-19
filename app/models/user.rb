@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     :join_table => "match_users",
     :foreign_key => "creator_id",
     :association_foeign_key => "target_id")
-
+  has_many :authorizations
   validates :name, presence: true
   # validates :uid, presence: true, uniqueness: true
   # validates :uid, uniqueness: { scope: :provider }
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
         provider: auth['provider'],
         uid: auth['uid'],
         name: auth['info']['name'],
-        password: "1234"
+        password: "123"
       )
   end
 
