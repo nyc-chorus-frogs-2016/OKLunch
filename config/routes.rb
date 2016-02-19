@@ -15,16 +15,19 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create, :new] #mby not new
 
+<<<<<<< b5d89b72cf1c553e2a8881c87e5c433077871984
 
   resources :sessions, only: [:new, :create, :destroy]
+=======
+>>>>>>> Add working Omniauth
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'
   get '/about' => 'pages#about'
   root 'restaurants#index'
 
-match '/auth/:provider/callback', :to => 'sessions#create', :via => [:get, :post]
-match '/auth/failure', :to => 'sessions#failure', :via => [:get, :post]
+match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
 root 'sessions#new'
 # collection do
