@@ -31,7 +31,7 @@ gem "paperclip", "~> 4.2"
 gem 'omniauth-facebook'
 # Let's the server listen for realtime changes
 gem 'private_pub'
-
+gem 'thin', '~> 1.6', '>= 1.6.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
