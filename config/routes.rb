@@ -26,6 +26,11 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'
   get '/about' => 'pages#about'
+
+  get '/matchrestaurants/success' => 'matchrestaurants#success'
+
+
+
   root 'restaurants#index'
 
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
