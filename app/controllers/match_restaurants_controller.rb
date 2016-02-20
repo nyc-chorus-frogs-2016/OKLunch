@@ -1,13 +1,19 @@
 class MatchRestaurantsController < ApplicationController
-	def create
-		
-	end
+  def create
 
-	def new
+  end
 
-	end
+  def new
 
-	def show
-		@user_restaurant = MatchRestaurant.find_by(id: params[:id])
-	end
+  end
+
+  def show
+    @match_restaurant = MatchRestaurant.find_by(id: params[:id])
+  end
+
+  def success
+    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
+    @user = User.find_by(id: params[:user_id])
+    @match_restaurant = MatchRestaurant.create(user_id: @user.id, restaurant_id: @restaurant.id)
+  end
 end
