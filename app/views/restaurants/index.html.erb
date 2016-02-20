@@ -27,15 +27,15 @@
   </div>
 
   <div id="yes-no-buttons">
-    <%= form_tag matchrestaurant_path do %>
-    <%= hidden_field_tag :restaurant_id, value: @target_restaurant.id%>
-    <%= hidden_field_tag :yes_swipe, value: true%>
+    <%= form_tag match_restaurants_path do %>
+    <%= hidden_field_tag :restaurant_id, @target_restaurant.id%>
+    <%= hidden_field_tag :match, true%>
     <%= submit_tag "Yes", :name => "FISH" %>
     <% end %>
 
-    <%= form_tag matchrestaurant_path do %>
+    <%= form_tag match_restaurants_path do %>
     <%= hidden_field_tag :restaurant_id, @target_restaurant.id%>
-    <%= hidden_field_tag :yes_swipe, false%>
+    <%= hidden_field_tag :match, false%>
     <%= submit_tag "No", :name => nil %>
     <% end %>
   </div>

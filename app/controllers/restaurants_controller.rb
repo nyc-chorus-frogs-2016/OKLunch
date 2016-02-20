@@ -6,10 +6,12 @@ class RestaurantsController < ApplicationController
   skip_before_action :ensure_current_user
 
   def index
+    # @restaurants = Restaurant.all
     unless current_user
-      redirect_to about_path layout: false
+      redirect_to about_path
+    else
+      @target_restaurant = Restaurant.next(current_user)
     end
-    @target_restaurant = Restaurant.next(current_user)
   end
 
   def filtered
