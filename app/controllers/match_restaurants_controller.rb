@@ -21,7 +21,7 @@ class MatchRestaurantsController < ApplicationController
   def success
     @match_restaurant = MatchRestaurant.find_by(id: params[:id])
     @restaurant = @match_restaurant.restaurant
-    render '/matchrestaurants/_success'
+    render '/match_restaurants/_success'
   end
 
   def matchrestaurant_params
