@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
     unless current_user
       redirect_to about_path layout: false
     end
-    @restaurants = Restaurant.all
+    @target_restaurant = Restaurant.next(current_user)
   end
 
   def filtered

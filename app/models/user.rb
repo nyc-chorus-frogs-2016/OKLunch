@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # validates :uid, presence: true, uniqueness: true
   # validates :uid, uniqueness: { scope: :provider }
 
-  has_many :swipes
+  has_many :match_restaurants
 
   def find_common_interests(usertwo)
   end
