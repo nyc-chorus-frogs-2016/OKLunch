@@ -10,9 +10,14 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :create, :new, :edit, :update, :destroy]
-  resources :matchrestaurants, only: [:show, :create]
+  resources :match_restaurants, only: [:show, :create] do
+    member do
+      get :success
+    end
+  end
+
   #this is where you match with users
-  resources :matchusers, only: [:show]
+  resources :match_users, only: [:show]
   #if you and the user match, go to match users show page
   resources :conversations, only: [:show, :create, :new]
 
@@ -24,8 +29,6 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'
   get '/about' => 'pages#about'
-
-  get '/matchrestaurants/success' => 'matchrestaurants#success'
 
 
 
