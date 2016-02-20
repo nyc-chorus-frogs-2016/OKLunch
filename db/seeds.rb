@@ -13,8 +13,13 @@ end
 end
 
 20.times do
-  MatchRestaurant.create!(user: User.all.sample, restaurant: Restaurant.all.sample)
+  MatchRestaurant.create!(user: User.first, restaurant: Restaurant.all.sample, match: true)
 end
+20.times do
+  MatchRestaurant.create!(user: User.second, restaurant: Restaurant.all.sample, match: true)
+end
+
+
 
 20.times do
   Interest.create!(name: Faker::Hipster.word)

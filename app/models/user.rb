@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
     :foreign_key => "creator_id",
     :association_foeign_key => "target_id")
   has_many :authorizations
+
+  has_many :restaurants, through: :match_restaurants
+
   validates :name, presence: true
 
   has_many :swipes_as_swipee, foreign_key: :swipee_id, class_name: "Swipe"
