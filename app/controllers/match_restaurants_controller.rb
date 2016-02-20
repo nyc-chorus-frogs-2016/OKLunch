@@ -16,6 +16,10 @@ class MatchRestaurantsController < ApplicationController
 
   def show
     @match_restaurant = MatchRestaurant.find_by(id: params[:id])
+    @true_matches = MatchRestaurant.where(restaurant_id: @match_restaurant.restaurant.id, match: true)
+    binding.pry
+
+
   end
 
   def success

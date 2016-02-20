@@ -1,6 +1,7 @@
 class Restaurant < ActiveRecord::Base
 
   has_many :match_restaurants
+  has_many :users, through: :match_restaurants
   has_many :swipes
 
   def self.next(user)
