@@ -7,6 +7,12 @@ class User < ActiveRecord::Base
     :association_foeign_key => "target_id")
   has_many :authorizations
   validates :name, presence: true
+
+  has_many :swipes_as_swipee, foreign_key: :swipee_id, class_name: "Swipe"
+  has_many :swipes_as_swiper, foreign_key: :swiper_id, class_name: "Swipe"
+  has_many :swiped_users, through: :swipes_as_swiper, source: :swipee, foreign_key: :swipee_id
+  has_many :swipers, through: :swipes_as_swipee, source: :swiper, foreign_key: :swiper_id
+
   # validates :uid, presence: true, uniqueness: true
   # validates :uid, uniqueness: { scope: :provider }
 
