@@ -81,10 +81,7 @@ ActiveRecord::Schema.define(version: 20160218194801) do
     t.datetime "oauth_expires_at"
     t.string   "password_digest"
     t.string   "age"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "image"
     t.string   "background_information"
     t.boolean  "is_desperate",           default: false
     t.datetime "created_at",                             null: false

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create, :new] #mby not new
 
+  resource :session, only: [:new, :create, :destroy]
 
 
   get '/login' => 'sessions#new'
