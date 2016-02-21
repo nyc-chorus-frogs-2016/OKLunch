@@ -12,7 +12,18 @@ Controller.prototype.getNextUnswipedRestaurant = function(){
   options.method ='GET'
   options.dataType = 'json'
   $.ajax(options).done(function(response){
+    debugger;
     view.drawRestaurant(response)
   });
 
   };
+
+Controller.prototype.submitDrop = function(args){
+
+dataObj = {match: args.match, restaurant_id: args.restaurantID, is_permanent: args.isPermanent}
+
+var options = {url: '/match_restaurants', method: 'POST', data: dataObj, dataType: 'json'};
+
+$.ajax(options).done(function(response){debugger});
+
+};

@@ -32,12 +32,12 @@ div#never {
   background: orange;
 }
 
-div.active-restaurant-tile {
-  position:absolute;
+div#active-restaurant-tile {
+  position:relative;
   margin: auto;
-  height: 100px;
-  width: 100px;
-  top: 0;
+  height: 300px;
+  width: 300px;
+  top: 33%;
   left: 0;
   right: 0;
   bottom: 0;

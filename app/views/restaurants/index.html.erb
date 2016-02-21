@@ -19,11 +19,11 @@
 
 
 <div id="wrapper">
-  <div class="quadrant" id="no">foo</div>
-  <div class="quadrant" id="yes">bar</div>
-  <div class="quadrant" id="always">fizz</div>
-  <div class="quadrant" id="never">buzz</div>
-  <div class="active-restaurant-tile" data='<%=@target_restaurant.id.to_s%>'>
+  <div class="quadrant" id="no">no</div>
+  <div class="quadrant" id="yes">yes</div>
+  <div class="quadrant" id="always">always</div>
+  <div class="quadrant" id="never">never</div>
+  <div id="active-restaurant-tile" data-id='<%=@target_restaurant.id.to_s%>'>
     <ul id='restaurant-tile-details'>
           <li><%=@target_restaurant.name%></li>
           <li><%=@target_restaurant.cuisine%></li>
