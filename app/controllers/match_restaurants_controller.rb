@@ -2,10 +2,15 @@ class MatchRestaurantsController < ApplicationController
   def create
 
     @matchrestaurant = MatchRestaurant.create!(matchrestaurant_params)
-    if @matchrestaurant.match
-      redirect_to success_match_restaurant_path(@matchrestaurant)
+
+    if request.xhr?
+      render :json => @matchrestaurant.restaurant.to_json
     else
-      redirect_to restaurants_path
+      if @matchrestaurant.match
+        redirect_to success_match_restaurant_path(@matchrestaurant)
+      else
+        redirect_to restaurants_path
+      end
     end
 
   end

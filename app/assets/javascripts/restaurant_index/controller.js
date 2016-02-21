@@ -19,4 +19,11 @@ Controller.prototype.getNextUnswipedRestaurant = function(){
   };
 
 Controller.prototype.submitDrop = function(args){
+
+dataObj = {match: args.match, restaurant_id: args.restaurantID, is_permanent: args.isPermanent}
+
+var options = {url: '/match_restaurants', method: 'POST', data: dataObj, dataType: 'json'};
+
+$.ajax(options).done(function(response){debugger});
+
 };

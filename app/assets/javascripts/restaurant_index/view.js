@@ -22,7 +22,7 @@ View.prototype.drag_and_drop = function(){
   $('div.quadrant').droppable();
 
   $('div.quadrant').on('drop', function(event){
-    var whichQuad = $(event.target).attr('id');s
+    var whichQuad = $(event.target).attr('id');
     var args = {'restaurantID': targetID};
     switch(whichQuad) {
       case 'yes':
