@@ -21,14 +21,13 @@
   <div id="left-no">foo</div>
   <div id="right-yes">bar</div>
 
-  <div id ="active-restaurant">
 
-    <div id='active-restaurant-tile' data='<%=@target_restaurant.id.to_s%>'>
-      <ul id='restaurant-tile-details'>
-        <li><%=@target_restaurant.name%></li>
-        <li><%=@target_restaurant.cuisine%></li>
-      </ul>
-    </div>
+      <div id='active-restaurant-tile' data='<%=@target_restaurant.id.to_s%>'>
+        <ul id='restaurant-tile-details'>
+          <li><%=@target_restaurant.name%></li>
+          <li><%=@target_restaurant.cuisine%></li>
+        </ul>
+      </div>
 
     <div id="yes-no-buttons">
       <%= form_tag match_restaurants_path do %>
@@ -44,7 +43,6 @@
       <% end %>
     </div>
 
-  </div>
 
 </div>
 
