@@ -2,28 +2,29 @@ function View(){};
 
 View.prototype.drawRestaurant = function(thisRestaurant){
   var html = '<div id="active-restaurant-tile" data-id="' + thisRestaurant.id.toString() + '">';
-  html += '<ul>';
-  html += '<li>name:' + thisRestaurant.name + '</li>';
+  html += '<ul id="restaurant-tile-details">';
+  html += '<li>name: <%=link_to ' + thisRestaurant.name + ', match_restaurant_path('+ thisRestaurant.matchrestaurant_id.toString() +')%></li>';
   html += '<li>cuisine' + thisRestaurant.cuisine + '</li>';
   html += '</ul></div>';
-  $('div#active-restaurant').prepend(html);
-  $('div#yes-no-buttons').show();
-}
+  $('div#wrapper').append(html);
+};
 
-View.prototype.drag_and_drop = function(){
+View.prototype.makeDraggable = function(){
+   $('div#active-restaurant-tile').draggable();
+};
+
+View.prototype.dragAndDrop = function(){
   var self = this;
   var targetID;
 
-  $('div#active-restaurant-tile').draggable();
-  $('div#active-restaurant-tile').on('drag', function(event){
-    targetID = $(event.target).data('id')
-  });
+  // $('div#active-restaurant-tile').on('dragstart', function(event){
+  //   console.log(event.target)
+  //   targetID = $(event.target).data('id')
+  // });
 
-  $('div.quadrant').droppable();
-
-  $('div.quadrant').on('drop', function(event){
+  $('div.quadrant').on('drop', function(event, ui){
     var whichQuad = $(event.target).attr('id');
-    var args = {'restaurantID': targetID};
+    var args = {'restaurantID': ui.draggable.data('id'), 'stat': whichQuad};
     switch(whichQuad) {
       case 'yes':
         args.isPermanent = false;
@@ -42,26 +43,13 @@ View.prototype.drag_and_drop = function(){
         args.match = false;
         break;
     };
-
     self.controller.submitDrop(args);
-
   });
-
-  // $('div#no').on('drop', function(event){
-  //   args = {"is_permanent": false, }
-  // });
-
-  // $('div#yes').on('drop', function(event){
-
-  // });
-
-  // $('div#always').on('drop', function(event){
-
-  // });
-
-  // $('div#never').on('drop', function(event){
-
-  // });
-
-
 };
+
+  View.prototype.addTile = function(args){
+    $('div#active-restaurant-tile').remove();
+    var html = '<div class="inactive-restaurant-tile">' + args.restaurant_name + '</div>'
+    $('div#' + args.stat).append(html);
+    controller.getNextUnswipedRestaurant();
+  };

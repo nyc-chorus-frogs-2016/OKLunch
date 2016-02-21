@@ -36,6 +36,16 @@ ul#restaurant-tile-details {
   position:absolute;
 }
 
+div.inactive-restaurant-tile {
+  display:inline-block;
+  margin: .5em;
+  padding: .5em;
+  height:100px;
+  width:100px;
+  position:relative;
+  background-color: purple;
+}
+
 div#active-restaurant-tile {
   position:relative;
   margin: auto;
