@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   #if you and the user match, go to match users show page
   resources :conversations, only: [:show, :create, :new]
 
-  resources :messages, only: [:create, :new] #mby not new
+  resources :messages, only: [:create, :new, :show] #mby not new
 
   resource :session, only: [:new, :create, :destroy]
 

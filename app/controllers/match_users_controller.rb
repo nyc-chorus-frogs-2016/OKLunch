@@ -15,6 +15,8 @@ class MatchUsersController < ApplicationController
   end
 
   def show
+    @match_user = MatchUser.find_by(id: params[:id])
+    @conversation = Conversation.create(sender_id: @match_user.creator_id, recipient_id: @match_user.target_id)
   end
 
   def success
