@@ -8,6 +8,7 @@ class SwipesController < ApplicationController
 			flash[:notice] = "You matched with #{@swipe.swipee.name}!"
 		else
 			redirect_to match_restaurant_path(params[:match_restaurant_id])
+			flash[:notice] = "You have not yet matched with #{@swipe.swipee.name}!"
 		end
 	end
 

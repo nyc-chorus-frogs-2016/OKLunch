@@ -1,17 +1,24 @@
+keddyb = User.create!(name:'KeddyB', password: "123", age: Faker::Number.number(2), background_information: Faker::Hipster.paragraph(2))
+
 10.times do
 User.create!(name: Faker::Name.name, password: "123", age: Faker::Number.number(2), background_information: Faker::Hipster.paragraph(2))
 end
+
 
 response = Yelp.client.search('New York', { term: 'food' })
 response.businesses.each do |business|
   Restaurant.create!(name: business.name, address: business.location.display_address.join(", "), average_rating: business.rating, cuisine: business.categories.map{|cuisine|cuisine[0]}.join(', '), image_url: business.image_url, phone: business.phone)
 end
 
+users = User.all[1..10]
 Restaurant.all.each do |restaurant|
-  User.all.each do |user|
+  users.each do |user|
     MatchRestaurant.create!(user: user, restaurant: restaurant, match: true)
+    Swipe.create!(swiper:user, swipee:keddyb, direction: true, restaurant: restaurant)
   end
 end
+
+# Swipe.create
 
 # 20.times do
 #   MatchUser.create!(creator: User.all.sample, target: User.all.sample, status: "Matched")
