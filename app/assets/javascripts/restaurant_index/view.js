@@ -10,23 +10,11 @@ View.prototype.drawRestaurant = function(thisRestaurant){
   $('div#yes-no-buttons').show();
 }
 
-View.prototype.listenForDrop = function(){
+View.prototype.drag_and_drop = function(){
+  var self = this;
+
+  $('div.active-restaurant-tile').draggable();
+
+
 
 };
-
-
-
-//take this driver code out
-$(document).ready(function(){
-  view = new View;
-  controller = new Controller(view);
-  view.controller = controller;
-
-  view.listenForDrop();
-
-  $('a#testing-button').on("click", function(event){
-    event.preventDefault();
-    controller.getNextUnswipedRestaurant();
-  });
-
-});

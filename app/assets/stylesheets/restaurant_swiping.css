@@ -35,8 +35,8 @@ div#never {
 div.active-restaurant-tile {
   position:absolute;
   margin: auto;
-  height: 100px;
-  width: 100px;
+  height: 300px;
+  width: 300px;
   top: 0;
   left: 0;
   right: 0;

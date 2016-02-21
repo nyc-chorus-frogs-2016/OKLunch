@@ -12,6 +12,7 @@ Controller.prototype.getNextUnswipedRestaurant = function(){
   options.method ='GET'
   options.dataType = 'json'
   $.ajax(options).done(function(response){
+    debugger;
     view.drawRestaurant(response)
   });
 
