@@ -1,9 +1,10 @@
 class MessagesController < ApplicationController
 
-
   def create
-    @match_user = MatchUser.find_by(id: params[:match_user_id])
-    @message = Message.new(content: params[:content], conversation_id: params[:conversation_id], sender: @match_user.creator, recipient: @match_user.target)
+    # binding.pry
+    @conversation = Conversation.find_by(id: params[:message][:conversation_id])
+    @match_user = MatchUser.find_by(id: params[:message][:match_user_id])
+    @message = Message.new(content: params[:message][:content], conversation_id: params[:message][:conversation_id], sender: @match_user.creator, recipient: @match_user.target, match_user_id: @match_user.id)
     if @message.save
       flash[:notice] = "Your message was successfully sent"
     else
