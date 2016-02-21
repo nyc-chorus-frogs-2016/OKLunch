@@ -32,7 +32,7 @@ div#never {
   background: orange;
 }
 
-ul{
+ul#restaurant-tile-details {
   position:absolute;
 }
 
