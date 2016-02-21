@@ -32,6 +32,10 @@ div#never {
   background: orange;
 }
 
+ul{
+  position:absolute;
+}
+
 div#active-restaurant-tile {
   position:relative;
   margin: auto;
