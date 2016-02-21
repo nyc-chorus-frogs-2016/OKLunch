@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
     :join_table => "match_users",
     :foreign_key => "creator_id",
     :association_foeign_key => "target_id")
-  has_many :authorizations
-
   has_many :restaurants, through: :match_restaurants
 
   validates :name, presence: true
