@@ -13,17 +13,19 @@ Controller.prototype.getNextUnswipedRestaurant = function(){
   options.dataType = 'json'
   $.ajax(options).done(function(response){
     debugger;
-    view.drawRestaurant(response)
+    view.drawRestaurant(response);
+    view.makeDraggable();
+  }).fail(function(response){
+    console.log(response);
   });
 
   };
 
 Controller.prototype.submitDrop = function(args){
+  var dataObj = {match: args.match, restaurant_id: args.restaurantID, is_permanent: args.isPermanent}
+  var options = {url: '/match_restaurants', method: 'POST', data: dataObj, dataType: 'json'};
 
-dataObj = {match: args.match, restaurant_id: args.restaurantID, is_permanent: args.isPermanent}
-
-var options = {url: '/match_restaurants', method: 'POST', data: dataObj, dataType: 'json'};
-
-$.ajax(options).done(function(response){debugger});
-
+  $.ajax(options).done(function(response){
+    view.addTile(response)
+  });
 };

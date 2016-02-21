@@ -4,7 +4,20 @@ class MatchRestaurantsController < ApplicationController
     @matchrestaurant = MatchRestaurant.create!(matchrestaurant_params)
 
     if request.xhr?
-      render :json => @matchrestaurant.restaurant.to_json
+
+      if @matchrestaurant.match && @matchrestaurant.is_permanent
+        status = "always"
+      elsif @matchrestaurant.match && !@matchrestaurant.is_permanent
+        status = "yes"
+      elsif !@matchrestaurant.match && @matchrestaurant.is_permanent
+        status = "never"
+      else
+        status = "no"
+      end
+
+      send_back = {restaurant_name: @matchrestaurant.restaurant.name, matchrestaurant_id: @matchrestaurant.id, stat: status}
+      render :json => send_back
+
     else
       if @matchrestaurant.match
         redirect_to success_match_restaurant_path(@matchrestaurant)
