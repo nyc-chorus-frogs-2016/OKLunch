@@ -29,7 +29,9 @@
         </ul>
       </div>
 
-    <div id="yes-no-buttons">
+</div>
+
+<div id="yes-no-buttons">
       <%= form_tag match_restaurants_path do %>
       <%= hidden_field_tag :restaurant_id, @target_restaurant.id%>
       <%= hidden_field_tag :match, true%>
@@ -42,9 +44,5 @@
       <%= submit_tag "No", :name => nil %>
       <% end %>
     </div>
-
-
-</div>
-
 <a href="#" id="testing-button">CLICK HERE FOR FIRST RESTAURANT</a>
 

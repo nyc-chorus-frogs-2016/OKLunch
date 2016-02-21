@@ -10,14 +10,6 @@ div#active-restaurant-tile {
   position:absolute;
 }
 
-div#active-restaurant {
-	/*orange box*/
-	width:5em;
-	margin: auto;
-	position: relative;
-	background:orange;
-}
-
 div#yes-no-buttons {
 /*  display: none;*/
 }
