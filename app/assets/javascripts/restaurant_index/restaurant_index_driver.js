@@ -3,7 +3,7 @@ $(document).ready(function(){
   controller = new Controller(view);
   view.controller = controller;
 
-  view.listenForDrop();
+  view.drag_and_drop();
 
   $('a#testing-button').on("click", function(event){
     event.preventDefault();

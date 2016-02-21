@@ -17,3 +17,6 @@ Controller.prototype.getNextUnswipedRestaurant = function(){
   });
 
   };
+
+Controller.prototype.submitDrop = function(args){
+};
