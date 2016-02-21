@@ -1,23 +1,23 @@
 <h1><%=@match_restaurant.restaurant.name%></h1>
 <p>The following users have also selected <%=@match_restaurant.restaurant.name%>.</p>
 
-<ul><% @matchable.each do |user|%>
+<ul><% @true_matches.each do |match|%>
 <!-- if a restaurant match person exists as a swipe, then the buttons should go away-->
-  <li><%=user.name%></li>
+  <li><%=match.user.name%></li>
   <div id="yes-no-buttons">
     <%= form_tag swipes_path do %>
-    <%= hidden_field_tag :swipee_id, user.id%>
+    <%= hidden_field_tag :swipee_id, match.user.id%>
     <%= hidden_field_tag :direction, true%>
-    <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
-    <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
+    <%= hidden_field_tag :restaurant_id, match.restaurant_id%>
+    <%= hidden_field_tag :match_restaurant_id, match.id%>
     <%= submit_tag "Yes", :name => nil %>
     <% end %>
 
     <%= form_tag swipes_path do %>
-    <%= hidden_field_tag :swipee_id, user.id%>
+    <%= hidden_field_tag :swipee_id, match.user.id%>
     <%= hidden_field_tag :direction, true%>
-    <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
-    <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
+    <%= hidden_field_tag :restaurant_id, match.restaurant_id%>
+    <%= hidden_field_tag :match_restaurant_id, match.id%>
     <%= submit_tag "No", :name => nil %>
     <% end %>
   </div>
