@@ -1,6 +1,24 @@
 <h1><%=@match_restaurant.restaurant.name%></h1>
 <p>The following users have also selected <%=@match_restaurant.restaurant.name%>.</p>
 
-<ul>
+<ul><% @true_matches.each do |match|%>
+  <li><%=match.user.name%></li>
+  <div id="yes-no-buttons">
+    <%= form_tag swipes_path do %>
+    <%= hidden_field_tag :swipee_id, match.user.id%>
+    <%= hidden_field_tag :direction, true%>
+    <%= hidden_field_tag :restaurant_id, match.restaurant_id%>
+    <%= hidden_field_tag :match_restaurant_id, match.id%>
+    <%= submit_tag "Yes", :name => nil %>
+    <% end %>
 
+    <%= form_tag swipes_path do %>
+    <%= hidden_field_tag :swipee_id, match.user.id%>
+    <%= hidden_field_tag :direction, true%>
+    <%= hidden_field_tag :restaurant_id, match.restaurant_id%>
+    <%= hidden_field_tag :match_restaurant_id, match.id%>
+    <%= submit_tag "No", :name => nil %>
+    <% end %>
+  </div>
 </ul>
+<%end%>

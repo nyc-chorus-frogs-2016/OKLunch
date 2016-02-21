@@ -4,12 +4,12 @@ class Swipe < ActiveRecord::Base
   belongs_to :restaurant
 
 
-  def self.search_for_match(swipe_creator)
+  def search_for_match(swipe_creator)
   	current_swipe = Swipe.find_by(swiper_id: swipe_creator.id)
   	match_swipe = Swipe.where(swiper: current_swipe.swipee, swipee: current_swipe.swiper)
-  	if match_swipe.exists? 
+  	if match_swipe.exists?
   		true
-  	else 
+  	else
   		false
   	end
   end

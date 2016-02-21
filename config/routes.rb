@@ -10,14 +10,19 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :create, :new, :edit, :update, :destroy]
+
   resources :match_restaurants, only: [:show, :create] do
     member do
       get :success
     end
   end
-
+  resources :swipes, only: [:create]
   #this is where you match with users
-  resources :match_users, only: [:show]
+  resources :match_users, only: [:create, :show] do
+    member do
+      get :success
+    end
+  end
   #if you and the user match, go to match users show page
   resources :conversations, only: [:show, :create, :new]
 
