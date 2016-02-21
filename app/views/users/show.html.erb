@@ -1,1 +1,18 @@
-<h1>Welcome to your profile, <%=@user.name%></h1>
+<h1>Welcome to <%=@user.name%>'s profile!</h1>
+  <h2> Here are restaurants you've matched with!</h2>
+  <ul>
+  <% @user.restaurants.each do |restaurant|%>
+    <li><%= link_to restaurant.name, match_restaurant_path(restaurant.id)%></li>
+  <%end%>
+</ul>
+  <h3> Here are users you've matched with!</h3>
+  <% @user.swipes_as_swiper.each do |swipe|%>
+  <ul>
+    <li><link_to swipe.swipee.name, user_path(swipe.swipee.id)</li>
+  </ul>
+  <%end%>
+<% @user.swipes_as_swipee.each do |swipe|%>
+<ul>
+  <li><link_to swipe.swiper.name, user_path(swipe.swiper.id)</li>
+</ul>
+<%end%>

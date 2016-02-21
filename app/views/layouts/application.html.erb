@@ -22,13 +22,14 @@
 
     <div id="user_nav">
       <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
+        Signed in as <strong><%= link_to current_user.name, user_path(current_user.id) %></strong>!
         <%= image_tag current_user.image %>
         <%= link_to "Sign out", logout_path, id: "sign_out" %>
       <% else %>
        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
       <% end %>
       <%= link_to 'Home', restaurants_path %>
+
     </div>
   </div>
   <%= yield %>
