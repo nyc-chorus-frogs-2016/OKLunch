@@ -8,11 +8,11 @@
   <h3> Here are users you've matched with!</h3>
   <% @user.swipes_as_swiper.each do |swipe|%>
   <ul>
-    <li><link_to swipe.swipee.name, user_path(swipe.swipee.id)</li>
+    <li><%=link_to swipe.swipee.name, user_path(swipe.swipee.id)%></li>
   </ul>
   <%end%>
 <% @user.swipes_as_swipee.each do |swipe|%>
 <ul>
-  <li><link_to swipe.swiper.name, user_path(swipe.swiper.id)</li>
+  <li><%=link_to swipe.swiper.name, user_path(swipe.swiper.id)%></li>
 </ul>
 <%end%>
