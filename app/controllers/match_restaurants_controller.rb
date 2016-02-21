@@ -15,14 +15,14 @@ class MatchRestaurantsController < ApplicationController
   end
 
   def show
-    @match_restaurant = MatchRestaurant.find_by(id: params[:id])
-
+    @match_restaurant = MatchRestaurant.find(params[:id])
     @true_matches = MatchRestaurant.where(restaurant_id: @match_restaurant.restaurant.id, match: true)
-    @true_matches.return_matchable_users(current_user)
+
+    @matchable = @true_matches.return_matchable_users(current_user).reject {|user| user == current_user}
   end
 
   def success
-    @match_restaurant = MatchRestaurant.find_by(id: params[:id])
+    @match_restaurant = MatchRestaurant.find(params[:id])
     @restaurant = @match_restaurant.restaurant
     render '/match_restaurants/_success'
   end
