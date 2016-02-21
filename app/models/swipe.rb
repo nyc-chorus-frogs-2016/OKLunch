@@ -14,7 +14,5 @@ class Swipe < ActiveRecord::Base
   	end
   end
 
-	def create_match(swipe)
-  		MatchUser.create(creator_id: swipe.swiper, target_id: swipe.swipee, status: active, accepted: true, restaurant_id: swipe.restaurant_id)
-	end
+
 end
