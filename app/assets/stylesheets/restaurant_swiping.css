@@ -1,7 +1,7 @@
-div#active-restaurant-tile { 
+div#active-restaurant-tile {
 	/*grey box*/
-  width: 3em;
-  height: 3em;
+  width: 25%;
+  height: auto;
   left: 0;
   right: 0;
   margin: auto;
@@ -12,9 +12,9 @@ div#active-restaurant-tile {
 
 div#active-restaurant {
 	/*orange box*/
-	width:3em;
-	margin: auto; 
-	position: relative; 
+	width:5em;
+	margin: auto;
+	position: relative;
 	background:orange;
 }
 
