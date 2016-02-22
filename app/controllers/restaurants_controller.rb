@@ -18,6 +18,7 @@ class RestaurantsController < ApplicationController
     search_filter = params[:searchfield].to_sym
     target = params[:search]
     @filtered_restaurants = Restaurant.where("#{search_filter} LIKE ?", "%#{target}%")
+    @target_filtered_restaurant = @filtered_restaurants.next(current_user)
   end
 
   def next_unswiped
