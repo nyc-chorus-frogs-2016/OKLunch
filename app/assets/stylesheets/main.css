@@ -1,11 +1,29 @@
-body{
+body, html{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+#main {
+  position: relative;
+  padding: 20px;
+  font-family: Papyrus, Arial;
+  margin:20px;
+  min-height:100%;
+}
+
+#main:after {
+  content : "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-image: url("2ppl.jpg");
   background-repeat: no-repeat;
   background-position: fixed;
   background-size: cover;
-  height:100%;
-  margin:0;
-  padding:100px;
-  font-family:Trebuchet MS,Arial;
-  font-size:80%;
+  width: 100%;
+  height: 100%;
+  opacity : 0.4;
+  z-index: -1;
 }
