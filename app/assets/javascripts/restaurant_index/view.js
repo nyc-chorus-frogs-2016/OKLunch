@@ -45,8 +45,12 @@ View.prototype.dragAndDrop = function(){
   View.prototype.addTile = function(args){
     console.log(args);
     $('div#active-restaurant-tile').remove();
-    // it wasn't working when I used link_to or other erb stuff so I made this a regular a tag
-    var html = '<a href="match_restaurants/' + args.matchrestaurant_id + '">'
+    var html = ""
+
+    if(args.stat === "yes" || args.stat === "always"){
+      html += '<a href="match_restaurants/' + args.matchrestaurant_id + '">'
+    }
+
     html += '<div class="inactive-restaurant-tile">'
     html+= args.restaurant_name
     html += '</div>'
