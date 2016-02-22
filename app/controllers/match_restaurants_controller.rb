@@ -15,7 +15,7 @@ class MatchRestaurantsController < ApplicationController
         status = "no"
       end
 
-      send_back = {restaurant_name: @matchrestaurant.restaurant.name, matchrestaurant_id: @matchrestaurant.id, stat: status}
+      send_back = {restaurant_name: @matchrestaurant.restaurant.name, matchrestaurant_id: @matchrestaurant.id, stat: status, image_url: @matchrestaurant.restaurant.image_url}
       render :json => send_back
 
     else
