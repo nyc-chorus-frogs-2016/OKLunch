@@ -3,7 +3,7 @@ function View(){};
 View.prototype.drawRestaurant = function(thisRestaurant){
   var html = '<div id="active-restaurant-tile" data-id="' + thisRestaurant.id.toString() + '">';
   html += '<ul id="restaurant-tile-details">';
-  html += '<li>name: thisRestaurant.name</li>';
+  html += '<li>name: ' + thisRestaurant.name+ '</li>';
   html += '<li>cuisine' + thisRestaurant.cuisine + '</li>';
   html += '</ul></div>';
   $('div#wrapper').append(html);
