@@ -1,28 +1,13 @@
-<h1> Here are the current messages between you and <%= @recipient.name%></h1>
-<% @all_messages.each do |message| %>
-<% if current_user.id == message.sender_id %>
-<strong class="primary-font"><%= message.sender.name %></strong>
-</small>
+<div id="chat">
+<%= render @conversation.messages %>
 </div>
-<p class="pull-left"><%= message.content %></p>
-</div>
-<% else %>
-<div class="chat-body clearfix">
-  <div class="header">
-    <strong class="primary-font"><%= message.sender.name %></strong>
-    <small class=" text-muted">
-    </small>
-  </div>
-  <p class="pull-left"><%= message.content %></p>
-</div>
-</li>
-<% end %>
-<%end%>
+
 <h2> Submit a new message:</h2>
-<%= form_for @message, url: messages_path do |f| %>
+<%= form_for @message, remote: true, url: messages_path do |f| %>
 Content: <%=f.text_field :content%>
 <%= f.hidden_field :match_user_id, value: @match_user.first.id%>
 <%= f.hidden_field :conversation_id, value: @conversation.id%>
 <%= f.submit "Send"%>
 <%end%>
 
+<%= subscribe_to conversation_path(@conversation) %>

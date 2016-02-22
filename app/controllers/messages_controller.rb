@@ -5,12 +5,8 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find_by(id: params[:message][:conversation_id])
     @match_user = MatchUser.find_by(id: params[:message][:match_user_id])
     @message = Message.new(content: params[:message][:content], conversation_id: params[:message][:conversation_id], sender: @match_user.creator, recipient: @match_user.target, match_user_id: @match_user.id)
-    if @message.save
-      flash[:notice] = "Your message was successfully sent"
-    else
-      flash[:notice] = "Sorry, your message failed to send"
-    end
-    redirect_to conversation_path(@message.conversation_id)
+    @message.save
+    puts "Hello"
 	end
 
   # private

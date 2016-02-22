@@ -1,0 +1,4 @@
+
+<% publish_to conversation_path(@conversation) do %>
+  $("#chat").append("<%= j render(@message)%>");
+<% end %>
