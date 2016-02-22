@@ -4,6 +4,9 @@
 <ul><% @true_matches.each do |match|%>
 <!-- if a restaurant match person exists as a swipe, then the buttons should go away-->
   <li><%=match.user.name%></li>
+  <% if match.user.is_desperate == true %>
+    <%= image_tag('cash.png', size: "25x25") %>
+  <% end %>
   <div id="yes-no-buttons">
     <%= form_tag swipes_path do %>
     <%= hidden_field_tag :swipee_id, match.user.id%>

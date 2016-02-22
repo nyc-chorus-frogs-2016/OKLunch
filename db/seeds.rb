@@ -1,7 +1,7 @@
-keddyb = User.create!(name:'KeddyB', password: "123", age: Faker::Number.number(2), background_information: Faker::Hipster.paragraph(2))
+keddyb = User.create!(name:'KeddyB', password: "123", age: 24, background_information: Faker::Hipster.paragraph(2), interests: Faker::Hipster.paragraph(1))
 
 10.times do
-User.create!(name: Faker::Name.name, password: "123", age: Faker::Number.number(2), background_information: Faker::Hipster.paragraph(2))
+User.create!(name: Faker::Name.name, password: "123", age: Faker::Number.number(2), background_information: Faker::Hipster.paragraph(2), is_desperate: true, interests: Faker::Hipster.paragraph(1))
 end
 
 
