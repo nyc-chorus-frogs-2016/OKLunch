@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show] do
-    collection do
-      get 'filtered'
-    end
      collection do
       get 'next_unswiped'
     end
