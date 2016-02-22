@@ -2,10 +2,13 @@
 <p>The following users have also selected <%=@match_restaurant.restaurant.name%>.</p>
 
 <ul><% @matchable_users.each do |user|%>
-  <li><%=user.name%></li>
+  <li><%=link_to user.name, user%></li>
   <% if user.is_desperate == true %>
     <%= image_tag('cash.png', size: "25x25") %>
   <% end %>
+  <div id='propic'>
+    <img src="<%=user.image%>">
+  </div>
   <div id="yes-no-buttons">
     <%= form_tag swipes_path do %>
     <%= hidden_field_tag :swipee_id, user.id%>
