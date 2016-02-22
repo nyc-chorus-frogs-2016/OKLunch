@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 20160220194623) do
     t.string   "age"
     t.string   "image"
     t.text     "background_information"
-    t.text     "interests"
     t.boolean  "is_desperate",           default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false

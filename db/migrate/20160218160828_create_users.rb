@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :age
       t.string :image
       t.text :background_information
-      t.text :interests
       t.boolean :is_desperate, default: false
       t.timestamps null: false
     end
