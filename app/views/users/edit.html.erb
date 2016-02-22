@@ -1,0 +1,9 @@
+<%= form_for @user do |f| %>
+  <% [:name, :age, :background_information, :interests, :is_desperate].each do |field|  %>
+    <div>
+      <%= f.label field %>
+      <%= f.text_field field %>
+    </div>
+  <% end %>
+  <%= f.submit %>
+<% end %>
