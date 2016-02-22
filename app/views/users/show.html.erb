@@ -14,7 +14,9 @@
 <h2> Here are restaurants you've matched with!</h2>
 <ul>
   <% @user.restaurants.each do |restaurant|%>
-  <li><%= link_to restaurant.name, match_restaurant_path(restaurant.id)%></li>
+  <%@match_restaurants.each do |match_restaurant|%>
+  <li><%= link_to restaurant.name, match_restaurant_path(match_restaurant.id)%></li>
+  <%end%>
   <%end%>
 </ul>
 
