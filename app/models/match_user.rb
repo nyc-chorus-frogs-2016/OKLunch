@@ -7,9 +7,7 @@ class MatchUser < ActiveRecord::Base
   validate :different_users, on: :create
 
   def different_users
-    if self.creator_id == self.target_id
-      errors.add(:creator, "creator can't be target")
-    end
+    errors.add(:creator, "creator can't be target") if self.creator_id == self.target_id
   end
 
 
