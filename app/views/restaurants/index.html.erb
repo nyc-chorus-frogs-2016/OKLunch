@@ -3,7 +3,7 @@
 
 </div>
 
-<%= form_tag restaurants_path, :method => 'get' do %>
+<%= form_tag restaurants_path, :method => 'get', class: "filter" do %>
 <p>
   <select name="searchfield">
     <option value="name">Restaurant Name</option>
@@ -12,7 +12,7 @@
     <option value="cuisine"> Restaurant's Cuisine </option>
   </select>
   <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Filter Selection", :name => nil %>
+  <%= submit_tag "Filter Selection", :name => nil, class: "filter-submit-button"%>
 </p>
 <% end %>
 

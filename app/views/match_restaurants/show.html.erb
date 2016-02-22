@@ -15,7 +15,7 @@
     <%= hidden_field_tag :direction, true%>
     <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
     <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
-    <%= submit_tag "Yes", :name => nil %>
+    <%= submit_tag "Yes", class: "submit-yes-swipe", :name => nil %>
     <% end %>
 
     <%= form_tag swipes_path do %>
@@ -23,7 +23,7 @@
     <%= hidden_field_tag :direction, true%>
     <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
     <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
-    <%= submit_tag "No", :name => nil %>
+    <%= submit_tag "No", class: "submit-no-swipe", :name => nil %>
     <% end %>
   </div>
 </ul>
