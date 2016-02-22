@@ -3,7 +3,7 @@
 <%= link_to 'edit', edit_user_path(@user) %>
 <% end %>
 
-<h2>Your profile details below:</h2>
+<h2><%=@user.name%>'s profile details below:</h2>
 <ul>
   <li>AGE: <%=@user.age%></li>
   <li>BACKGROUND: <%=@user.background_information%></li>
@@ -11,16 +11,16 @@
   <li>WILLING TO PAY: <%=@user.is_desperate%></li>
 </ul>
 
-<h2> Here are restaurants you've matched with!</h2>
+<h2> Here are restaurants <%=@user.name%> has matched with!</h2>
 <ul>
-  <% @user.restaurants.each do |restaurant|%>
-  <%@match_restaurants.each do |match_restaurant|%>
+  <% @match_restaurants.each do |match_restaurant|%>
+  <% @user_restaurants.each do |restaurant|%>
   <li><%= link_to restaurant.name, match_restaurant_path(match_restaurant.id)%></li>
   <%end%>
   <%end%>
 </ul>
 
-<h3> Here are users you've matched with!</h3>
+<h3> Here are users <%=@user.name%> has matched with!</h3>
 <ul>
 <% @user.swipes_as_swiper.each do |swipe|%>
   <li><%=link_to swipe.swipee.name, user_path(swipe.swipee.id)%></li>
