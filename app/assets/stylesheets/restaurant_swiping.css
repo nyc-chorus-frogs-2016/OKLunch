@@ -5,7 +5,7 @@ html, body{
 div#wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: block;
   background: yellow;
 }
@@ -17,19 +17,19 @@ div.quadrant {
 }
 
 div#no {
-  background: red;
+  background: #ffe6e6;
 }
 
 div#yes {
-  background: green;
+  background: #e6ffe6;
 }
 
 div#always {
-  background: blue;
+  background: #b3ffb3;
 }
 
 div#never {
-  background: orange;
+  background: #ff9999;
 }
 
 ul#restaurant-tile-details {
