@@ -37,6 +37,7 @@ gem 'thin', '~> 1.6', '>= 1.6.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # gem 'sqlite3'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'faker'
@@ -54,3 +55,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # gem 'pg'
+  gem 'rails_12factor'
+end
