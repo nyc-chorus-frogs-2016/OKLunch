@@ -2,7 +2,6 @@
 <p>The following users have also selected <%=@match_restaurant.restaurant.name%>.</p>
 
 <ul><% @matchable_users.each do |user|%>
-<!-- if a restaurant match person exists as a swipe, then the buttons should go away-->
   <li><%=user.name%></li>
   <% if user.is_desperate == true %>
     <%= image_tag('cash.png', size: "25x25") %>
