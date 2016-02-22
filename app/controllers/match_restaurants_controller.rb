@@ -33,8 +33,14 @@ class MatchRestaurantsController < ApplicationController
 
   def show
     @match_restaurant = MatchRestaurant.find(params[:id])
+    if @match_restaurant.user == current_user
+    # binding.pry
     @true_matches = MatchRestaurant.where(restaurant_id: @match_restaurant.restaurant.id, match: true)
     @matchable_users = @true_matches.return_matchable_users(current_user)
+    else
+      flash.notice = ['You hacked the URL and you are not the user of this Restaurant match, here are some more Restaurants for you to look at']
+        redirect_to root_path
+    end
   end
 
   def success
