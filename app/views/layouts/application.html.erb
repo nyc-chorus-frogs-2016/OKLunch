@@ -8,19 +8,10 @@
 </head>
 <body>
   <div id='main'>
-    <% if flash.any?  %>
-    <div id="flash-container">
-      <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "flash-#{name}" %>
-      <% end %>
-    </div>
-    <% end %>
-
     <div id="heading">
       <div id = "logo">
         <%= link_to image_tag("oklunch.png", size:"200x125"), root_path %>
       </div>
-
       <div id="user_nav">
         <% if current_user %>
           Signed in as <strong><%= link_to current_user.name, user_path(current_user.id) %></strong>!
@@ -31,6 +22,13 @@
         <% end %>
         <%= link_to 'Home', restaurants_path %>
       </div>
+      <% if flash.any?  %>
+      <div id="flash-container">
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "flash-#{name}" %>
+        <% end %>
+      </div>
+      <% end %>
     </div>
     <%= yield %>
   </div>
