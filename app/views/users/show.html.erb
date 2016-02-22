@@ -14,21 +14,15 @@
 <h2> Here are restaurants <%=@user.name%> has matched with!</h2>
 <ul>
   <% @match_restaurants.each do |match_restaurant|%>
-  <% @user_restaurants.each do |restaurant|%>
-  <li><%= link_to restaurant.name, match_restaurant_path(match_restaurant.id)%></li>
-  <%end%>
+  <li><%= link_to match_restaurant.restaurant.name, match_restaurant_path(match_restaurant.id)%></li>
   <%end%>
 </ul>
-
 <h3> Here are users <%=@user.name%> has matched with!</h3>
 <ul>
-<% @user.swipes_as_swiper.each do |swipe|%>
+<% @user_swipes_as_swiper.each do |swipe|%>
   <li><%=link_to swipe.swipee.name, user_path(swipe.swipee.id)%></li>
 <%end%>
-</ul>
-
-<ul>
-<% @user.swipes_as_swipee.each do |swipe|%>
-  <li><%=link_to swipe.swiper.name, user_path(swipe.swiper.id)%></li>
+<% @user_swipes_as_swipee.each do |swipe_two|%>
+  <li><%=link_to swipe_two.swiper.name, user_path(swipe_two.swiper.id)%></li>
 <%end%>
 </ul>

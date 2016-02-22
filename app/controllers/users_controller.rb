@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @match_restaurants = MatchRestaurant.where(user_id: @user.id)
-    @user_restaurants = @user.restaurants.all
+    @user_swipes_as_swiper = @user.swipes_as_swiper.where(direction: true)
+    @user_swipes_as_swipee = @user.swipes_as_swipee.where(direction: true)
   end
 
   def edit
