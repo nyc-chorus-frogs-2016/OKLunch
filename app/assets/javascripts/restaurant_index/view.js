@@ -3,7 +3,7 @@ function View(){};
 View.prototype.drawRestaurant = function(thisRestaurant){
   var html = '<div id="active-restaurant-tile" data-id="' + thisRestaurant.id.toString() + '">';
   html += '<ul id="restaurant-tile-details">';
-  html += '<li>name: <%=link_to ' + thisRestaurant.name + ', match_restaurant_path('+ thisRestaurant.matchrestaurant_id.toString() +')%></li>';
+  html += '<li>name: thisRestaurant.name</li>';
   html += '<li>cuisine' + thisRestaurant.cuisine + '</li>';
   html += '</ul></div>';
   $('div#wrapper').append(html);
@@ -16,11 +16,6 @@ View.prototype.makeDraggable = function(){
 View.prototype.dragAndDrop = function(){
   var self = this;
   var targetID;
-
-  // $('div#active-restaurant-tile').on('dragstart', function(event){
-  //   console.log(event.target)
-  //   targetID = $(event.target).data('id')
-  // });
 
   $('div.quadrant').on('drop', function(event, ui){
     var whichQuad = $(event.target).attr('id');
@@ -48,8 +43,14 @@ View.prototype.dragAndDrop = function(){
 };
 
   View.prototype.addTile = function(args){
+    console.log(args);
     $('div#active-restaurant-tile').remove();
-    var html = '<div class="inactive-restaurant-tile">' + args.restaurant_name + '</div>'
+    // it wasn't working when I used link_to or other erb stuff so I made this a regular a tag
+    var html = '<a href="match_restaurants/' + args.matchrestaurant_id + '">'
+    html += '<div class="inactive-restaurant-tile">'
+    html+= args.restaurant_name
+    html += '</div>'
+    console.log(html)
     $('div#' + args.stat).append(html);
     controller.getNextUnswipedRestaurant();
   };

@@ -25,7 +25,6 @@ class MatchRestaurantsController < ApplicationController
         redirect_to restaurants_path
       end
     end
-
   end
 
   def new
