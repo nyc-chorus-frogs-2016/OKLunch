@@ -5,3 +5,13 @@ div.restaurant-match-tile {
 	padding: 2%;
 }
 
+div.user-match-tile {
+  display: inline-block;
+  border: 2px solid black;
+  margin: 2%;
+  padding: 2%;
+}
+
+span.highlighted-common-interest {
+  background: yellow;
+}
