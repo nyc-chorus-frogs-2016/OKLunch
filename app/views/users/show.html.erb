@@ -45,10 +45,10 @@
 </div>
 
 <% if @user == current_user %>
-  <% if @user.match_users.count > 0 %>
+  <% if @user.open_connections.count > 0 %>
     <hr />
     <h2>Open Connections!</h2>
-    <% @user.match_users.each do |mu| %>
+    <% @user.open_connections.each do |mu| %>
     <div class='user-match-tile'>
       <p><%= link_to mu.other_user(@user).name, match_user_path(mu) %><p>
       <% common_interests = @user.common_interests(mu.other_user(@user)) %>
