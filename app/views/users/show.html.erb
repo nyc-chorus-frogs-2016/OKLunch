@@ -51,7 +51,7 @@
     <% @user.match_users.each do |mu| %>
     <div class='user-match-tile'>
       <p><%= link_to mu.other_user(@user).name, match_user_path(mu) %><p>
-      <% common_interests = @user.common_interests(mu.other_user) %>
+      <% common_interests = @user.common_interests(mu.other_user(@user)) %>
       <% if common_interests.count > 0 %>
         <p>Common interests:
           <% common_interests.each do |interest| %>
