@@ -1,2 +1,5 @@
-<h1> Congratulations, you matched with <%= @user.name%>!</h1>
-<%= link_to "Chat with this user now!"%>
+<h1> Congratulations, you matched with <%= user.name%>!</h1>
+<%= link_to "Chat with this user now!", conversation_path(@conversation)%>
+<%= link_to "View this user's profile!", user_path(@match_user.target_id)%>
+
+

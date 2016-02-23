@@ -10,7 +10,7 @@
     <img src="<%=user.image%>">
   </div>
   <div id="yes-no-buttons">
-    <%= form_tag swipes_path, id: "user-swipe-yes" do %>
+    <%= form_tag swipes_path, class: "user-swipe-yes" do %>
     <%= hidden_field_tag :swipee_id, user.id%>
     <%= hidden_field_tag :direction, true%>
     <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
