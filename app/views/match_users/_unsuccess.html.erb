@@ -1,1 +1,5 @@
+<% if swipe.direction == true%>
 <h1> Your swipe was successful- if <%=user.name%> wants to eat with you, expect a swipe back shortly!</h1>
+<% else%>
+<h1> Your swipe was successful - You'll never hear from <%=user.name%> again!</h1>
+<%end%>
