@@ -9,17 +9,15 @@ $(document).ready(function(){
       dataType: 'HTML'
     }
     $.ajax(requestOptions).done(function(response){
+      debugger
       console.log(response)
       $('#yes-no-buttons').replaceWith(response)
     }).fail(function(response){
       console.log(response)
-
     });
-
-
   })
-    $('input.submit-no-swipe').on('click', function(event){
-    event.preventDefault();
-    debugger
-  })
+  //   $('input.submit-no-swipe').on('click', function(event){
+  //   event.preventDefault();
+  //   debugger
+  // })
 });

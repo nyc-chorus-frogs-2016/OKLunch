@@ -21,7 +21,6 @@ class RestaurantsController < ApplicationController
     end
   end
 
-
   def next_unswiped
     render :json => Restaurant.next(current_user).to_json
   end
