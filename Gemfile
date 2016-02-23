@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.2.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
@@ -19,13 +19,19 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'httparty', '~> 0.13.7'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-
+gem 'yelp'
+gem "paperclip", "~> 4.2"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Facebook Login
+gem 'omniauth-facebook'
+# Let's the server listen for realtime changes
+gem 'private_pub'
+gem 'thin', '~> 1.6', '>= 1.6.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -42,8 +48,12 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'pry'
   gem 'pry-nav'
+  gem 'pry-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end

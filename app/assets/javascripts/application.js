@@ -9,7 +9,8 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require private_pub
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui-1.11.4.custom/jquery-ui
 //= require_tree .

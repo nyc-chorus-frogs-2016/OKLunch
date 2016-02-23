@@ -1,0 +1,30 @@
+<h1><%=@match_restaurant.restaurant.name%></h1>
+<p>The following users have also selected <%=@match_restaurant.restaurant.name%>.</p>
+
+<ul><% @matchable_users.each do |user|%>
+  <li><%=link_to user.name, user%></li>
+  <% if user.is_desperate == true %>
+    <%= image_tag('cash.png', size: "25x25") %>
+  <% end %>
+  <div id='propic'>
+    <img src="<%=user.image%>">
+  </div>
+  <div id="yes-no-buttons">
+    <%= form_tag swipes_path do %>
+    <%= hidden_field_tag :swipee_id, user.id%>
+    <%= hidden_field_tag :direction, true%>
+    <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
+    <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
+    <%= submit_tag "Yes", class: "submit-yes-swipe", :name => nil %>
+    <% end %>
+
+    <%= form_tag swipes_path do %>
+    <%= hidden_field_tag :swipee_id, user.id%>
+    <%= hidden_field_tag :direction, true%>
+    <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
+    <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
+    <%= submit_tag "No", class: "submit-no-swipe", :name => nil %>
+    <% end %>
+  </div>
+</ul>
+<%end%>

@@ -1,0 +1,49 @@
+<h1> hello </h1>
+<div id="restaurant-swipe">
+
+</div>
+
+<%= form_tag filtered_restaurants_path, :method => 'get' do %>
+<p>
+  <select name="searchfield">
+    <option value="name">Restaurant Name</option>
+    <option value="address">Restaurant Address</option>
+    <option value="average_rating"> Restaurant's Average Review Rating</option>
+    <option value="cuisine"> Restaurant's Cuisine </option>
+  </select>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Filter Selection", :name => nil %>
+</p>
+<% end %>
+
+<div id="wrapper">
+  <div class="quadrant" id="no">no</div>
+  <div class="quadrant" id="yes">yes</div>
+  <div class="quadrant" id="always">always</div>
+  <div class="quadrant" id="never">never</div>
+  <%if @target_filtered_restaurant%>
+  <div id="active-restaurant-tile" data-id='<%=@target_filtered_restaurant.id.to_s%>'>
+    <ul id='restaurant-tile-details'>
+          <li><%=@target_filtered_restaurant.name%></li>
+          <li><%=@target_filtered_restaurant.cuisine%></li>
+        </ul>
+  </div>
+  <%end%>
+</div>
+
+  <%if @target_filtered_restaurant%>
+<div id="yes-no-buttons">
+      <%= form_tag match_restaurants_path do %>
+      <%= hidden_field_tag :restaurant_id, @target_filtered_restaurant.id%>
+      <%= hidden_field_tag :match, true%>
+      <%= submit_tag "Yes", :name => "FISH" %>
+      <% end %>
+
+      <%= form_tag match_restaurants_path do %>
+      <%= hidden_field_tag :restaurant_id, @target_filtered_restaurant.id%>
+      <%= hidden_field_tag :match, false%>
+      <%= submit_tag "No", :name => nil %>
+      <% end %>
+</div>
+<%end%>
+
