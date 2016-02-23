@@ -30,3 +30,9 @@
   </div>
 <% end %>
 </div>
+
+<% if @user == current_user %>
+  <% if @user.match_users.count > 0 %>
+   
+  <% end %>
+<% end %>
