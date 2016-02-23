@@ -35,6 +35,7 @@ class MatchRestaurantsController < ApplicationController
     @match_restaurant = MatchRestaurant.find(params[:id])
     @true_matches = MatchRestaurant.where(restaurant_id: @match_restaurant.restaurant.id, match: true)
     @matchable_users = @true_matches.return_matchable_users(current_user).reject {|user| user == current_user}
+    nil_check
   end
 
   def success
@@ -45,5 +46,14 @@ class MatchRestaurantsController < ApplicationController
 
   def matchrestaurant_params
     params.permit(:restaurant_id, :match, :is_permanent,).merge(user: current_user)
+   end
+
+   private
+   def nil_check
+    if @matchable_users == []
+      @show_page_greeting = "You are out of swipable users for this restaurant :("
+    else
+      @show_page_greeting = "The following users have also selected #{@match_restaurant.restaurant.name}."
+    end
    end
 end
