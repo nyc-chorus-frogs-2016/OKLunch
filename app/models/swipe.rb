@@ -11,9 +11,6 @@ class Swipe < ActiveRecord::Base
   	current_swipe = Swipe.find_by(swiper_id: swipe_creator.id)
   	match_swipe = Swipe.where(swiper: current_swipe.swipee, swipee: current_swipe.swiper)
   	if match_swipe.exists?
-  		true
-  	else
-  		false
   	end
   end
 

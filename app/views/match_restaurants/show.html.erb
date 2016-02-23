@@ -9,7 +9,7 @@
   <div id='propic'>
     <img src="<%=user.image%>">
   </div>
-  <div id="yes-no-buttons">
+  <div class="yes-no-buttons" data-id=<%= user.id %>>
     <%= form_tag swipes_path, class: "user-swipe-yes" do %>
     <%= hidden_field_tag :swipee_id, user.id%>
     <%= hidden_field_tag :direction, true%>
@@ -18,9 +18,9 @@
     <%= submit_tag "Yes", class: "submit-yes-swipe", :name => nil %>
     <% end %>
 
-    <%= form_tag swipes_path do %>
+    <%= form_tag swipes_path, class: "user-swipe-no" do %>
     <%= hidden_field_tag :swipee_id, user.id%>
-    <%= hidden_field_tag :direction, true%>
+    <%= hidden_field_tag :direction, false%>
     <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
     <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
     <%= submit_tag "No", class: "submit-no-swipe", :name => nil %>

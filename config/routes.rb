@@ -19,6 +19,13 @@ Rails.application.routes.draw do
     member do
       get :success
     end
+    member do
+      get :unsuccess
+    end
+
+    member do
+      get :novote
+    end
   end
   #if you and the user match, go to match users show page
   resources :conversations, only: [:show, :create, :new]

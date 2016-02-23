@@ -7,9 +7,6 @@ class User < ActiveRecord::Base
   has_many :interest_users
   has_many :interests, through: :interest_users
 
-  has_many :match_users, foreign_key: :creator_id
-  has_many :match_users, foreign_key: :target_id
-
   has_and_belongs_to_many(:users,
     :join_table => "match_users",
     :foreign_key => "creator_id",
@@ -21,9 +18,12 @@ class User < ActiveRecord::Base
   has_many :swipes_as_swiper, foreign_key: :swiper_id, class_name: "Swipe"
   has_many :swiped_users, through: :swipes_as_swiper, source: :swipee, foreign_key: :swipee_id
   has_many :swipers, through: :swipes_as_swipee, source: :swiper, foreign_key: :swiper_id
-
   has_many :match_restaurants
 
+  def open_connections
+    all_mus = MatchUser.where(creator_id: self.id).where(status: 'active').where(accepted: true) + MatchUser.where(target_id: self.id).where(status: 'active').where(accepted: true)
+    all_mus.flatten
+  end
 
   def interests_as_string
     self.interests.pluck(:name).join(", ");

@@ -19,5 +19,4 @@ class MatchUser < ActiveRecord::Base
       return nil
     end
   end
-
 end
