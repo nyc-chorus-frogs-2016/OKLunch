@@ -8,6 +8,7 @@
   <div class="header">
     <strong class="primary-font"><%= message.sender.name %></strong>
     <small class=" text-muted">
+      <span class="glyphicon"></span>sent at <%= std_format_date(message.created_at) %>
     </small>
   </div>
   <p class="pull-left"><%= message.content %></p>
