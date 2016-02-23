@@ -17,7 +17,7 @@
         <li>
           <%= f.label :interests %>
           Please list your interests separated by commas.
-          <%= f.text_area :interests_as_string, :class => 'userinput' %>
+          <%= f.text_area :interests, value: @user.interests_as_string, :class => 'userinput' %>
         </li>
         <li>
           <%= f.label :is_desperate %>
