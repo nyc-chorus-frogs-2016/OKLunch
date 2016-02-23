@@ -8,13 +8,11 @@ class SwipesController < ApplicationController
 			if request.xhr?
 				render partial: "match_users/success", locals: {user: @match_user.target, conversation: @conversation }, layout: false
 			else
-				# redirect_to match_user_path(@match_user)
 				flash[:notice] = "You matched with #{@swipe.swipee.name}!"
 			end
 		else
 			@conversation = Conversation.find_by(sender_id: @swipe.swiper, recipient_id: @swipe.swipee)
-			render partial: "match_users/unsuccess", locals: {user: @swipe.swipee, conversation: @conversation }, layout: false
-			# redirect_to match_restaurant_path(params[:match_restaurant_id])
+			render partial: "match_users/unsuccess", locals: {user: @swipe.swipee, conversation: @conversation, swipe: @swipe }, layout: false
 			flash[:notice] = "You have not yet matched with #{@swipe.swipee.name}!"
 		end
 	end
