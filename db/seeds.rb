@@ -1,5 +1,6 @@
 keddyb = User.create!(name:'KeddyB', password: "123", age: 24, background_information: Faker::Hipster.paragraph(2))
 
+
 10.times do
   User.create!(name: Faker::Name.name, password: "123", age: Faker::Number.number(2), background_information: Faker::Hipster.paragraph(2), is_desperate: true, image: Faker::Avatar.image(nil, "150x150"))
 end
