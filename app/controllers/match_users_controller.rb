@@ -1,13 +1,24 @@
 class MatchUsersController < ApplicationController
+
   def create
     @swipe = param_1
     @match_user = MatchUser.create!(target_id: @swipe.swipee, creator_id: @swipe.swiper, status: 'Y', accepted: true)
-      redirect_to match_user_path(@match_user.id)
+    @conversation = Conversation.create(sender_id: @match_user.creator_id, recipient_id: @match_user.target_id)
+    redirect_to match_user_path(@match_user.id)
   end
 
   def show
     @match_user = MatchUser.find_by(id: params[:id])
-    @conversation = Conversation.create(sender_id: @match_user.creator_id, recipient_id: @match_user.target_id)
+
+
+    a = Conversation.where(sender_id: current_user.id).where(recipient_id: @match_user.other_user(current_user).id)
+
+    if a.length > 0
+      @conversation = a.first
+    else
+      @conversation = Conversation.where(sender_id: @match_user.other_user(current_user).id).where(recipient_id: current_user.id).first
+    end
+
   end
 
   def success
