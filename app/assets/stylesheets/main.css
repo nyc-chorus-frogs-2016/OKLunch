@@ -100,3 +100,7 @@ input.usersubmit:hover {
 textarea:focus, input:focus {
   border: 1px solid #09C;
 }
+
+.glyphicon {
+  margin: 0px 5px 0px 5px;
+}
