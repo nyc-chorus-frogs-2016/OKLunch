@@ -10,5 +10,14 @@ class MatchUser < ActiveRecord::Base
     errors.add(:creator, "creator can't be target") if self.creator_id == self.target_id
   end
 
+  def other_user(user)
+    if target == user
+      return creator
+    elsif creator == user
+      return target
+    else
+      return nil
+    end
+  end
 
 end

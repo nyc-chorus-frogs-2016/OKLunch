@@ -27,7 +27,10 @@ class User < ActiveRecord::Base
 
   has_many :match_restaurants
 
-  def find_common_interests(usertwo)
+  def common_interests(usertwo)
+    self.interests.select do |interest|
+      usertwo.interests.include? (interest)
+    end
   end
 
   def self.from_omniauth(auth)
