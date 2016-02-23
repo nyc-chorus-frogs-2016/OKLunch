@@ -1,23 +1,23 @@
-<%= form_for @user do |f| %>
+<%= form_for @user,:html => {:class => "userform"} do |f| %>
   <fieldset>
     <legend>Create an Account</legend>
     <div>
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :class => 'userinput' %>
     </div>
 
     <div>
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, :class => 'userinput' %>
     </div>
 
     <div>
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, :class => 'userinput' %>
     </div>
 
     <div>
-      <%= f.submit %>
+      <%= f.submit 'Submit', :class => 'usersubmit' %>
     </div>
   </fieldset>
 <% end %>
