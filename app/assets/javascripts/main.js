@@ -1,19 +1,25 @@
-// $(document).ready(function(){
-//   $('.filter').on("submit", function(event){
-//     event.preventDefault();
-//     var options = new Object();
-//     options.url = $(event.target).attr('action')
-//     options.method = 'GET'
-//     options.dataType = 'HTML'
-//     $.ajax(options).done(function(response){
-//       debugger
-//     }).fail(function(response){
-//       console.log(response)
-//     })
-//   });
-//   $('.submit-yes-swipe').on('submit', function(event){
-//     event.preventDefault();
-//     debugger
-//   })
+$(document).ready(function(){
 
-// });
+  $('.user-swipe-yes').on('submit', function(event){
+    event.preventDefault();
+    var requestOptions = {
+      url: $(event.target).attr('action'),
+      method: 'POST',
+      data: $(event.target).serialize(),
+      dataType: 'HTML'
+    }
+    $.ajax(requestOptions).done(function(response){
+      console.log(response)
+      $('#yes-no-buttons').replaceWith(response)
+    }).fail(function(response){
+      console.log(response)
+
+    });
+
+
+  })
+    $('input.submit-no-swipe').on('click', function(event){
+    event.preventDefault();
+    debugger
+  })
+});

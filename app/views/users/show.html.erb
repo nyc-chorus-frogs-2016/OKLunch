@@ -7,7 +7,20 @@
 <ul>
   <li>AGE: <%=@user.age%></li>
   <li>BACKGROUND: <%=@user.background_information%></li>
-  <li>INTERESTS: <%@user.interests.each do |interest|%><%=interest.name%> <%end%></li>
+  <% if @user == current_user %>
+   <li>INTERESTS: <%@user.interests.each do |interest|%><%=interest.name%> <%end%></li>
+  <% else %>
+    <% highlighted_interests = @user.common_interests(current_user) %>
+    <li>INTERESTS:
+      <% @user.interests.each do |interest| %>
+        <% if highlighted_interests.include?(interest) %>
+          <span class="highlighted-common-interest"><%= interest.name %></span>
+        <% else %>
+          <%= interest.name %>
+        <% end %>
+      <% end %>
+    <%end%>
+    </li>
   <li>WILLING TO PAY: <%=@user.is_desperate%></li>
 </ul>
 
@@ -30,3 +43,22 @@
   </div>
 <% end %>
 </div>
+
+<% if @user == current_user %>
+  <% if @user.match_users.count > 0 %>
+    <hr />
+    <h2>Open Connections!</h2>
+    <% @user.match_users.each do |mu| %>
+    <div class='user-match-tile'>
+      <p><%= link_to mu.other_user(@user).name, match_user_path(mu) %><p>
+      <% common_interests = @user.common_interests(mu.other_user) %>
+      <% if common_interests.count > 0 %>
+        <p>Common interests:
+          <% common_interests.each do |interest| %>
+          <%= interest.name %> <% end %>
+        </p>
+      <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
