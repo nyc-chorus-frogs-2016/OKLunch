@@ -1,30 +1,29 @@
-<%= form_for @user do |f| %>
+<%= form_for @user,:html => {:class => "userform"} do |f| %>
   <fieldset>
     <legend>Fill in Your Details</legend>
       <ul>
         <li>
           <%= f.label :name %>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, :class => 'userinput' %>
         </li>
         <li>
           <%= f.label :age %>
-          <%= f.text_field :age %>
+          <%= f.text_field :age, :class => 'userinput' %>
         </li>
         <li>
           <%= f.label :background_information %>
-          <%= f.text_area :background_information %>
+          <%= f.text_area :background_information, :class => 'userinput' %>
         </li>
         <li>
           <%= f.label :interests %>
           Please list your interests separated by commas.
-          <%= f.text_area :interests, value: @user.interests_as_string %>
+          <%= f.text_area :interests, value: @user.interests_as_string, :class => 'userinput' %>
         </li>
         <li>
-          <%= f.label :is_desperate %>
-          <%=  f.text_field :is_desperate %>
+          <%= f.label :is_desperate, "Willing To Pay? Please enter true or false" %>
+          <%=  f.text_field :is_desperate, :class => 'userinput' %>
         </li>
       </ul>
-  <%= f.submit %>
-
+  <%= f.submit "Update Profile", :class => 'usersubmit' %>
   </fieldset>
 <% end %>
