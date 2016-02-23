@@ -2,13 +2,13 @@ body, html{
     height:100%;
     margin:0;
     padding:0;
-    /*min-height:100%;*/
+    font-size:120%;
 }
 
 #main {
   position: relative;
   padding: 20px;
-  font-family: 'amaticsc';
+  font-family: 'Flamenco', 'Asap';
   margin:20px;
   min-height:100%;
 }
@@ -29,12 +29,11 @@ body, html{
   z-index: -1;
 }
 
-/*@font-face {
-    font-family: 'amaticsc';
-    src: url('AmaticSC-Regular.ttf');
+#user_nav {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 1em;
+  padding-right: 2em;
 }
-
-.classname {
-    font-family: 'amaticsc';
-}
-*/
