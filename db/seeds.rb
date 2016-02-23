@@ -32,8 +32,3 @@ User.all.each do |user|
     InterestUser.create!(user: user, interest: int)
   end
 end
-
-Restaurant.all.each do |restaurant|
-  User.first.restaurants << restaurant
-  User.second.restaurants << restaurant
-end
