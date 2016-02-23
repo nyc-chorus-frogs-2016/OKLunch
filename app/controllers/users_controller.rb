@@ -27,7 +27,20 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+
+    interests_array = user_params[:interests].split(",")
+    interests_array.map! {|interest_name| interest_name.downcase.strip}
+    interests_array.map! {|interest| Interest.find_or_create_by(name: interest)}
+    interests_array.uniq!
+
+    updateable_params = user_params.dup
+    updateable_params.delete(:interests)
+
+    if @user.update(updateable_params)
+      @user.interest_users.each { |im| im.destroy}
+      interests_array.each do |new_interest|
+        @user.interests << new_interest
+      end
       flash.notice = 'User profile saved'
       redirect_to user_path(@user)
     else
