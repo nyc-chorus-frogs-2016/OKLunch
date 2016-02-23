@@ -17,7 +17,7 @@
       <div id="user_nav">
         <% if current_user %>
           Signed in as <strong><%= link_to current_user.name, user_path(current_user.id) %></strong>!
-          <%= link_to image_tag(current_user.image), user_path(current_user.id) %>
+          <%= link_to image_tag(current_user.image, size:"100x100"), user_path(current_user.id) %>
           <%= link_to "Sign out", logout_path, id: "sign_out" %>
         <% else %>
          <%= link_to image_tag('fb2.png', size:"220x44"), "/auth/facebook", id: "sign_in" %>
