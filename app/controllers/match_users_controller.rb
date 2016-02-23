@@ -5,8 +5,11 @@ class MatchUsersController < ApplicationController
     #pass swipe in here
     @swipe = param_1
     @match_user = MatchUser.create!(target_id: @swipe.swipee, creator_id: @swipe.swiper, status: 'Y', accepted: true)
+    if request.xhr?
+      render: match_user_path(@match_user.id)
+    else
     redirect_to match_user_path(@match_user.id)
-
+    end
     # if @new_match = MatchUser.create!(match_user_params)
     #   redirect_to success_match_user_path(@new_match)
     # else
