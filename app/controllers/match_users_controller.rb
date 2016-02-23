@@ -27,6 +27,12 @@ class MatchUsersController < ApplicationController
     render '/match_users/_success'
   end
 
+  def unsuccess
+    @match_user = MatchUser.find_by(id: params[:id])
+    @user = @match_user.target
+    render '/match_users/_unsuccess'
+  end
+
   def match_user_params
     params.permit(:target_id, :accepted, :status).merge(creator_id: current_user.id)
    end
