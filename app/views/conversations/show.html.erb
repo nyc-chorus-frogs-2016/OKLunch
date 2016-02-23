@@ -1,4 +1,4 @@
-<h1>Chat with <%=@recipient.name%></h1>
+<h1>Chat with <%= link_to @match_user.other_user(current_user).name, user_path(@match_user.other_user(current_user)) %></h1>
 <div id="chat">
 <%= render @conversation.messages %>
 </div>
@@ -6,7 +6,7 @@
 <h2> Submit a new message:</h2>
 <%= form_for @message, remote: true, url: messages_path do |f| %>
 Content: <%=f.text_field :content%>
-<%= f.hidden_field :match_user_id, value: @match_user.first.id%>
+<%= f.hidden_field :match_user_id, value: @match_user.id%>
 <%= f.hidden_field :conversation_id, value: @conversation.id%>
 <%= f.submit "Send"%>
 <%end%>
