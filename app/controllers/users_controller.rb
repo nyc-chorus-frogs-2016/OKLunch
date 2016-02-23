@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Thanks for registering"
-      redirect_to restaurants_path
+      redirect_to edit_user_path(user)
     else
       render :new
     end

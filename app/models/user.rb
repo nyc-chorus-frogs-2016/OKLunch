@@ -22,10 +22,12 @@ class User < ActiveRecord::Base
   has_many :swiped_users, through: :swipes_as_swiper, source: :swipee, foreign_key: :swipee_id
   has_many :swipers, through: :swipes_as_swipee, source: :swiper, foreign_key: :swiper_id
 
-  # validates :uid, presence: true, uniqueness: true
-  # validates :uid, uniqueness: { scope: :provider }
-
   has_many :match_restaurants
+
+
+  def interests_as_string
+    self.interests.pluck(:name).join(", ");
+  end
 
   def common_interests(usertwo)
     self.interests.select do |interest|
