@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Thanks for registering"
-      redirect_to restaurants_path
+      redirect_to edit_user_path(user)
     else
       render :new
     end
@@ -18,9 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @match_restaurants = MatchRestaurant.where(user_id: @user.id)
-    @user_swipes_as_swiper = @user.swipes_as_swiper.where(direction: true)
-    @user_swipes_as_swipee = @user.swipes_as_swipee.where(direction: true)
+    @match_restaurants = @user.match_restaurants.where(match: true)
   end
 
   def edit
