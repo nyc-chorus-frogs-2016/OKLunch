@@ -10,7 +10,6 @@ class MatchUsersController < ApplicationController
   def show
     @match_user = MatchUser.find_by(id: params[:id])
 
-
     a = Conversation.where(sender_id: current_user.id).where(recipient_id: @match_user.other_user(current_user).id)
 
     if a.length > 0
