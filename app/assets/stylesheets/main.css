@@ -46,7 +46,7 @@ form.userform {
   margin-top: 5em;
   position: relative;
   width: 550px;
-  height: 450px;
+  height: 650px;
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 14px;
   font-style: italic;
@@ -73,7 +73,7 @@ input.userinput {
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 
-textarea#feedback {
+textarea.userinput {
   width: 375px;
   height: 150px;
   display: block;
