@@ -20,8 +20,8 @@
           <%= f.text_area :interests, value: @user.interests_as_string, :class => 'userinput' %>
         </li>
         <li>
-          <%= f.label :is_desperate, "Willing To Pay? Please enter true or false" %>
-          <%=  f.text_field :is_desperate, :class => 'userinput' %>
+          <%= f.label :is_desperate, "Willing To Pay?" %>
+          <%=  f.check_box :is_desperate %>
         </li>
       </ul>
   <%= f.submit "Update Profile", :class => 'usersubmit' %>
