@@ -7,7 +7,7 @@
     <%= image_tag('cash.png', size: "25x25") %>
   <% end %>
   <div id='propic'>
-    <img src="<%=user.image%>">
+    <%= image_tag(user.image, size:"250x250")%>
   </div>
   <div class="yes-no-buttons" data-id=<%= user.id %>>
     <%= form_tag swipes_path, class: "user-swipe-yes" do %>
