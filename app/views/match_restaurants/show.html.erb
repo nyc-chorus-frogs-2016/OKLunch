@@ -4,7 +4,7 @@
 <div id="matchable-users">
   <% @matchable_users.each do |user|%>
   <div class="matchable-user-tile">
-    <div class='matchable-user-tile-details'
+    <div class='matchable-user-tile-details'>
     <%=link_to user.name, user%>
     <% if user.is_desperate == true %>
     <%= image_tag('cash.png', size: "25x25") %>
