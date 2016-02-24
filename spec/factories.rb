@@ -12,7 +12,7 @@ FactoryGirl.define do
 		average_rating { Faker::Number.between(1, 5)}
 		cuisine { Faker::Book.genre}
 		image_url { Faker::Placeholdit.image("50x50", 'jpg')}
-		phone { Faker::Company.swedish_organization_number}
+		phone { Faker::PhoneNumber.phone_number }
 	end 
 
 	factory :conversation do 
@@ -28,10 +28,10 @@ FactoryGirl.define do
 	end
 
 	factory :match_restaurant do 
-		user_id {:user.id}
-		restaurant_id {:restaurant.id}
-		match {true}
-		is_permanent {false}
+		user
+		restaurant
+		match true
+		is_permanent false
 	end
 
 	factory :message do
