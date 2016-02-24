@@ -17,19 +17,19 @@ div.quadrant {
 }
 
 div#no {
-  background: #ffe6e6;
+  background: #a743ff;
 }
 
 div#yes {
-  background: #e6ffe6;
+  background: #693de8;
 }
 
 div#always {
-  background: #b3ffb3;
+  background: #5052ff;
 }
 
 div#never {
-  background: #ff9999;
+  background: #43a8ff;
 }
 
 ul#restaurant-tile-details {
