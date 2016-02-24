@@ -24,6 +24,15 @@
   <li>WILLING TO PAY: <%=@user.is_desperate%></li>
 </ul>
 
+
+   <% if current_user.open_connections.count > 0 %>
+    <% current_user.open_connections.each do |mu|%>
+    <% if mu.target == @user %>
+    <h3> You've matched with <%= link_to mu.other_user(current_user).name.capitalize, match_user_path(mu) %>! Would you like to chat with them? 
+    <%end%>
+    <%end%>
+    <%end%>
+
 <hr />
 <div id="restaurant-matches-section">
   <h2>Matched with the following restaurants!</h2>
@@ -62,12 +71,5 @@
     <% end %>
     <% end %>
     <% end %>
-    <% if current_user.open_connections.count > 0 %>
-    <% current_user.open_connections.each do |mu|%>
-    <% if mu.target == @user %>
-    Chat with: <%= link_to mu.other_user(current_user).name, match_user_path(mu) %>
-    <%end%>
-    <%end%>
-    <%end%>
-
+ 
 
