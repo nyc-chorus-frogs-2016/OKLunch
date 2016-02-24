@@ -33,17 +33,7 @@
 
   <%if @target_restaurant%>
 <div id="yes-no-buttons">
-      <%= form_tag match_restaurants_path do %>
-      <%= hidden_field_tag :restaurant_id, @target_restaurant.id%>
-      <%= hidden_field_tag :match, true%>
-      <%= submit_tag "Yes", :name => "FISH" %>
-      <% end %>
 
-      <%= form_tag match_restaurants_path do %>
-      <%= hidden_field_tag :restaurant_id, @target_restaurant.id%>
-      <%= hidden_field_tag :match, false%>
-      <%= submit_tag "No", :name => nil %>
-      <% end %>
 </div>
 <%end%>
 
