@@ -8,57 +8,66 @@
   <li>AGE: <%=@user.age%></li>
   <li>BACKGROUND: <%=@user.background_information%></li>
   <% if @user == current_user %>
-   <li>INTERESTS: <%@user.interests.each do |interest|%><%=interest.name%> <%end%></li>
+  <li>INTERESTS: <%@user.interests.each do |interest|%><%=interest.name%> <%end%></li>
   <% else %>
-    <% highlighted_interests = @user.common_interests(current_user) %>
-    <li>INTERESTS:
-      <% @user.interests.each do |interest| %>
-        <% if highlighted_interests.include?(interest) %>
-          <span class="highlighted-common-interest"><%= interest.name %></span>
-        <% else %>
-          <%= interest.name %>
-        <% end %>
-      <% end %>
+  <% highlighted_interests = @user.common_interests(current_user) %>
+  <li>INTERESTS:
+    <% @user.interests.each do |interest| %>
+    <% if highlighted_interests.include?(interest) %>
+    <span class="highlighted-common-interest"><%= interest.name %></span>
+    <% else %>
+    <%= interest.name %>
+    <% end %>
+    <% end %>
     <%end%>
-    </li>
+  </li>
   <li>WILLING TO PAY: <%=@user.is_desperate%></li>
 </ul>
 
 <hr />
 <div id="restaurant-matches-section">
-<h2>Matched with the following restaurants!</h2>
-<% @match_restaurants.each do |mr| %>
+  <h2>Matched with the following restaurants!</h2>
+  <% @match_restaurants.each do |mr| %>
   <div class="restaurant-match-tile">
     <p><% if @user == current_user %>
       <%= link_to mr.restaurant.name, match_restaurant_path(mr.id)%>
-    <% else %>
+      <% else %>
       <% my_match_restaurant = MatchRestaurant.where(user_id: current_user.id).where(restaurant_id: mr.restaurant.id).first %>
       <% if my_match_restaurant%>
-        <%= link_to mr.restaurant.name, match_restaurant_path(my_match_restaurant.id)%>
+      <%= link_to mr.restaurant.name, match_restaurant_path(my_match_restaurant.id)%>
       <% else %>
-        <%= mr.restaurant.name %>
+      <%= mr.restaurant.name %>
       <% end %>
-    <% end %></p>
-    <p><%= mr.restaurant.cuisine %></p>
+      <% end %></p>
+      <p><%= mr.restaurant.cuisine %></p>
+    </div>
+    <% end %>
   </div>
-<% end %>
-</div>
 
-<% if @user == current_user %>
+  <% if @user == current_user %>
   <% if @user.open_connections.count > 0 %>
-    <hr />
-    <h2>Open Connections!</h2>
-    <% @user.open_connections.each do |mu| %>
-    <div class='user-match-tile'>
-      <p><%= link_to mu.other_user(@user).name, match_user_path(mu) %><p>
+  <hr />
+  <h2>Open Connections!</h2>
+  <% @user.open_connections.each do |mu| %>
+  <div class='user-match-tile'>
+    <p><%= link_to mu.other_user(@user).name, match_user_path(mu) %><p>
       <% common_interests = @user.common_interests(mu.other_user(@user)) %>
       <% if common_interests.count > 0 %>
-        <p>Common interests:
-          <% common_interests.each do |interest| %>
-          <%= interest.name %> <% end %>
-        </p>
+      <p>Common interests:
+        <% common_interests.each do |interest| %>
+        <%= interest.name %> <% end %>
+      </p>
       <% end %>
-      </div>
+    </div>
     <% end %>
-  <% end %>
-<% end %>
+    <% end %>
+    <% end %>
+    <% if current_user.open_connections.count > 0 %>
+    <% current_user.open_connections.each do |mu|%>
+    <% if mu.target == @user %>
+    Chat with: <%= link_to mu.other_user(current_user).name, match_user_path(mu) %>
+    <%end%>
+    <%end%>
+    <%end%>
+
+
