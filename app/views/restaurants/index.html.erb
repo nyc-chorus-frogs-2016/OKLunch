@@ -5,16 +5,14 @@
 </div>
 
 <%= form_tag restaurants_path, :method => 'get', class: "filter" do %>
-<p>
-  <select name="searchfield">
-    <option value="name">Restaurant Name</option>
-    <option value="address">Restaurant Address</option>
-    <option value="average_rating"> Restaurant's Average Review Rating</option>
-    <option value="cuisine"> Restaurant's Cuisine </option>
-  </select>
+    <select name="searchfield" >
+      <option value="name">Restaurant Name</option>
+      <option value="address">Restaurant Address</option>
+      <option value="average_rating"> Restaurant's Average Review Rating</option>
+      <option value="cuisine"> Restaurant's Cuisine </option>
+    </select>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Filter Selection", :name => nil, class: "filter-submit-button"%>
-</p>
 <% end %>
 
 <div id="wrapper">

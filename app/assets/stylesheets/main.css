@@ -24,7 +24,7 @@ html:after {
   position: absolute;
   top: 0;
   left: 0;
-  
+
   width: 100%;
   height: 135%;
   opacity : 0.4;
@@ -146,8 +146,4 @@ background-color: #43A8FF;
 
 img.user-tile-profile-picture {
 border-radius: 5%;
-}
-
-.inlinepropic {
-  display:inline;
 }
