@@ -1,39 +1,46 @@
 <h1><%=@match_restaurant.restaurant.name%></h1>
-  <%= @show_page_greeting%>
+<%= @show_page_greeting%>
 
-<ul><% @matchable_users.each do |user|%>
-  <li><%=link_to user.name, user%></li>
-  <% if user.is_desperate == true %>
+<div id="matchable-users">
+  <% @matchable_users.each do |user|%>
+  <div class="matchable-user-tile">
+    <div class='matchable-user-tile-details'
+    <%=link_to user.name, user%>
+    <% if user.is_desperate == true %>
     <%= image_tag('cash.png', size: "25x25") %>
-  <% end %>
-  <div id='propic'>
-    <%= image_tag(user.image, size:"250x250")%>
-  </div>
-  <div class="yes-no-buttons" data-id=<%= user.id %>>
-    <%= form_tag swipes_path, class: "user-swipe-yes" do %>
-    <%= hidden_field_tag :swipee_id, user.id%>
-    <%= hidden_field_tag :direction, true%>
-    <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
-    <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
-    <%= submit_tag "Yes", class: "submit-yes-swipe", :name => nil %>
     <% end %>
+    <div id='propic'>
+      <%= image_tag(user.image, size:"200x200", class: "user-tile-profile-picture")%>
+    </div>
+    <div class="yes-no-buttons" data-id=<%= user.id %>>
+      <%= form_tag swipes_path, class: "user-swipe-yes" do %>
+      <%= hidden_field_tag :swipee_id, user.id%>
+      <%= hidden_field_tag :direction, true%>
+      <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
+      <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
+      <%= submit_tag "Yes", class: "submit-yes-swipe", :name => nil %>
+      <% end %>
 
-    <%= form_tag swipes_path, class: "user-swipe-no" do %>
-    <%= hidden_field_tag :swipee_id, user.id%>
-    <%= hidden_field_tag :direction, false%>
-    <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
-    <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
-    <%= submit_tag "No", class: "submit-no-swipe", :name => nil %>
+      <%= form_tag swipes_path, class: "user-swipe-no" do %>
+      <%= hidden_field_tag :swipee_id, user.id%>
+      <%= hidden_field_tag :direction, false%>
+      <%= hidden_field_tag :restaurant_id, @match_restaurant.restaurant_id%>
+      <%= hidden_field_tag :match_restaurant_id, @match_restaurant.id%>
+      <%= submit_tag "No", class: "submit-no-swipe", :name => nil %>
+    </div>
+      <div class="did-i-match"></div>
+    </div>
     <% end %>
   </div>
 </ul>
 <%end%>
+</div>
+
 <h3> Matches: </h3>
 <% if @match_restaurant.user.open_connections.count > 0 %>
 <% @match_restaurant.user.open_connections.each do |match_user|%>
-    <%= link_to "#{match_user.other_user(current_user).name}", user_path(match_user.other_user(current_user))%>
-    <%end%>
+<%= link_to "#{match_user.other_user(current_user).name}", user_path(match_user.other_user(current_user))%>
+<%end%>
 <% else %>
-  No matches yet.
+No matches yet.
 <% end %>
-
