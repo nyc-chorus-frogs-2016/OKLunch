@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
@@ -26,7 +26,7 @@ gem 'yelp'
 gem "paperclip", "~> 4.2"
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'simplecov', :require => false, :group => :test
 # Facebook Login
 gem 'omniauth-facebook'
 # Let's the server listen for realtime changes
@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'faker'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
