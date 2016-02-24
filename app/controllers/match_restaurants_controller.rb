@@ -51,7 +51,7 @@ class MatchRestaurantsController < ApplicationController
    private
    def nil_check
     if @matchable_users == []
-      @show_page_greeting = "You are out of swipable users for this restaurant :("
+      @show_page_greeting = "You have swiped on every user who has liked this restaurant in the past 24 hours."
     else
       @show_page_greeting = "The following users have also selected #{@match_restaurant.restaurant.name}."
     end
