@@ -1,14 +1,13 @@
 
 <% if current_user.id == message.sender_id %>
-<strong class="primary-font"><%= message.sender.name %></strong>
+<%= message.sender.name %></strong>
 </small>
-<p class="pull-left"><%= message.content %></p>
+<p><%= message.content %></p>
 <% else %>
 <div class="chat-body clearfix">
   <div class="header">
-    <strong class="primary-font"><%= message.sender.name %></strong>
-    <small class=" text-muted">
-      <span class="glyphicon"></span>sent at <%= std_format_date(message.created_at) %>
+    <%= message.sender.name %>
+      <span class="glyphicon">sent at <%= std_format_date(message.created_at) %></span>
     </small>
   </div>
   <p class="pull-left"><%= message.content %></p>
