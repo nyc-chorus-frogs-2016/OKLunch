@@ -12,12 +12,12 @@ class SwipesController < ApplicationController
 				if request.xhr?
 					render partial: "match_users/success", locals: {user: @match_user.target, conversation: @conversation }, layout: false
 				else
-					flash[:notice] = "You matched with #{@swipe.swipee.name}!"
+					# flash[:notice] = "You matched with #{@swipe.swipee.name}!"
 				end
 
 			else
 				render partial: "match_users/unsuccess", locals: {user: @swipe.swipee, swipe: @swipe }, layout: false
-				flash[:notice] = "You have not yet matched with #{@swipe.swipee.name}!"
+				# flash[:notice] = "You have not yet matched with #{@swipe.swipee.name}!"
 			end
 		else
 			render partial: "match_users/unsuccess", locals: {user: @swipe.swipee, swipe: @swipe }, layout: false
