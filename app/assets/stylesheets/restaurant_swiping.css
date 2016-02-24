@@ -14,22 +14,23 @@ div.quadrant {
   width: 50%;
   height: 50vh;
   float: left;
+  color: white;
 }
 
 div#no {
-  background: #a743ff;
+  background: #114963;
 }
 
 div#yes {
-  background: #693de8;
+  background: #5b555d;
 }
 
 div#always {
-  background: #5052ff;
+  background: #87e0b7;
 }
 
 div#never {
-  background: #43a8ff;
+  background: #0a1926;
 }
 
 ul#restaurant-tile-details {
@@ -43,7 +44,7 @@ div.inactive-restaurant-tile {
   height:100px;
   width:100px;
   position:relative;
-  background-color: purple;
+  background-color: white;
 }
 
 div#active-restaurant-tile {
@@ -55,5 +56,5 @@ div#active-restaurant-tile {
   left: 0;
   right: 0;
   bottom: 0;
-  background: grey;
+  background: white;
 }
