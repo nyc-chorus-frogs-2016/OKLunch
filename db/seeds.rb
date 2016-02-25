@@ -17,6 +17,7 @@ response.businesses.each do |business|
 end
 
 users = User.all[1..-1]
+
 Restaurant.all.each do |restaurant|
   users.each do |user|
     MatchRestaurant.create!(user: user, restaurant: restaurant, match: true)
@@ -26,16 +27,19 @@ end
 
 all_interests = ["fishing", "outdoors", "diy", "dancing", "hella chill", "mustaches", "tennis", "drinking lots of water", "cranberries", "jello", "pumpkins", "ice skating", "rock n' roll", "magic tricks", "CSS"]
 
-
-Interest.create!(name: "programming")
+prog = Interest.create!(name: "programming")
 
 all_interests.each do |interest|
   Interest.create!(name: interest)
 end
 
+users.each do |user|
+  user.interests << prog
+end
+
 User.all.each do |user|
-  InterestUser.create(user: user, interest: Interest.first)
-  all_ints = Interest.all.shuffle
+  all_ints = Interest.all[1..-1]
+  all_ints.shuffle!
   first_three = all_ints[(0..2)]
   first_three.each do |int|
     InterestUser.create!(user: user, interest: int)

@@ -12,3 +12,4 @@ coverage
 /log/*
 !/log/.keep
 /tmp
+.DS_Store
