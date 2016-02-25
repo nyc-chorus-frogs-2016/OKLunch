@@ -19,7 +19,7 @@ users = User.all[1..-1]
 Restaurant.all.each do |restaurant|
   users.each do |user|
     MatchRestaurant.create!(user: user, restaurant: restaurant, match: true)
-    Swipe.create!(swiper:user, swipee:steven, direction: true, restaurant: restaurant)
+    Swipe.new(swiper:user, swipee:steven, direction: true, restaurant: restaurant).save(validate: false)
   end
 end
 
