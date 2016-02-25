@@ -1,12 +1,10 @@
-<h1>Chat with <%= link_to @match_user.other_user(current_user).name, user_path(@match_user.other_user(current_user)) %></h1>
-<div id = "pic-content">
-  <img class = "rec-pic" src='<%=@match_user.other_user(current_user).image%>' >
-  <div id="chat">
-    <%= render @conversation.messages %>
-  </div>
-  <img class = "sender-pic" src='<%=current_user.image%>'>
-</div>
+<% chat_partner = @match_user.other_user(current_user) %>
 
+<h1>Chat with <%= link_to chat_partner.name, user_path(chat_partner)%>!</h1>
+
+<div id="chat-messages">
+   <%= render @conversation.messages %>
+</div>
 
 <div id='message-bar'>
 <h2> Submit a new message:</h2>

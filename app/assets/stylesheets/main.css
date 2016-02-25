@@ -11,59 +11,6 @@ body, html{
     background-image: url("whitebricks.jpg");
 }
 
-
-#message-bar {
-   /*margin-top: -150px; negative value of footer height
-    height: 150px;*/
-    clear:both;
-    width:40%;
-    margin:auto;
-    /*float: right;*/
-
-}
-.chat{
-  width:50%;
-}
-
-
-#pic-content{
-  margin: auto;
-  width:80%;
-  display:flex;
-}
-.rec-pic{
-  /*padding-right:3em;*/
-  position:relative;
-  display:inline-block;
-  /*float:left;*/
-  left:0%;
-  height: 25%;
-  width: 20%
-}
-
-.sender-pic{
-  /*padding-right:2em;*/
-  position: relative;
-  display: inline-block;
-  right: 0%;
-  /*float:right;*/
-  height: 25%;
-  width: 20%;
-}
-
-#message-sender{
-  width: 50%;
-  margin:auto;
-  background-color:#114963;
-  border-radius:20px;
-  color: white;
-  padding:20px;
-  /*float: right;*/
-}
-
-#message-recipient {
-  /*float: left;*/
-}
 #main {
   position: relative;
   padding: 20px;

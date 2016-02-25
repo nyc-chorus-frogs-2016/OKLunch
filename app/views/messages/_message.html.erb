@@ -1,20 +1,30 @@
-
 <% if current_user.id == message.sender_id %>
-<div id='message-sender'>
-<p><%= message.sender.name %></p>
-<p><%= message.content %></p>
- <span class="glyphicon">sent at <%= std_format_date(message.created_at) %> </span>
-</div>
+	<div id='message-sender'>
+		<div class="centered-stuff">
+			<div class="sender-pic">
+				<img src="<%=current_user.image%>" class="avatar"/>
+			</div>
+			<div class="sender-content">
+				<p><%= message.sender.name %></p>
+				<p><%= message.content %></p>
+				<span class="glyphicon">sent at <%= std_format_date(message.created_at) %> </span>
+			</div>
+		</div>
+	</div>
 <% else %>
-<div class="chat-body clearfix">
-  <div class="header">
-   <p> <%= message.sender.name %> </p>
-      <span class="glyphicon">sent at <%= std_format_date(message.created_at) %> </span>
-    </small>
-  </div>
-  <div id='message-recipient'>
-  <p class="pull-left"><%= message.content %></p>
-</div>
-</div>
-</li>
+	<div id='message-recipient'>
+
+		<div class="centered-stuff">
+			<div class="recipient-content">
+				<p><%= message.sender.name %></p>
+				<p><%= message.content %></p>
+				<span class="glyphicon">sent at <%= std_format_date(message.created_at) %> </span>
+			</div>
+			<div class="recipient-pic">
+				<img src="<%=message.sender.image%>" class="avatar"/>
+			</div>
+
+		</div>
+		
+	</div>
 <% end %>

@@ -1,0 +1,53 @@
+#chat-window {
+  background: pink;
+}
+
+.sender-pic, .sender-content, .recipient-content, .recipient-pic {
+  display: inline-block;
+}
+
+.avatar {
+  border-radius: 5%;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+#chat-messages {
+  width: 75%;
+  margin: auto;
+}
+
+#message-bar {
+    clear:both;
+    width:40%;
+    margin:auto;
+}
+
+#message-sender{
+  text-align: center;
+  margin:auto;
+  background-color:#114963;
+  border-radius:20px;
+  color: white;
+  padding:20px;
+  width: 100%;
+  margin: 20px;
+}
+
+#message-recipient {
+  text-align: center;
+  margin:auto;
+  background-color:#114963;
+  border-radius:20px;
+  color: white;
+  padding:20px;
+  width: 100%;
+  margin: 20px;
+}
+
+.centered-stuff {
+  display: inline-block;
+  margin:auto;
+}
