@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui-1.11.4.custom/jquery-ui
+//= require jquery.flip.min.js
 //= require_tree .

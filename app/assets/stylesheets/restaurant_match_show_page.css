@@ -1,19 +1,29 @@
 div#matchable-users{
 text-align: center;
 margin: auto;
-
+/*max-height: 60vh;
+overflow-y: scroll;*/
 }
 
-div.matchable-user-tile{
+div.card{
+width:250px;
+min-height:100%;
+margin: 20px;
 display: inline-block;
-background-color: #5052FF;
-margin: .5em;
-margin-bottom: .5em;
-padding: .5em;
-border-radius: 5%;
+height: 300px;
 }
 
-div.matchable-user-tile a {
+div.front {
+  padding: 10px;
+  background-color: #87E0b7;
+}
+
+div.back {
+  padding: 10px;
+  background-color: #87E0b7;
+}
+
+div.card a {
 text-align: center;
 }
 
