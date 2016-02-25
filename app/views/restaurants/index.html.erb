@@ -20,7 +20,7 @@
   <%if @target_restaurant%>
   <div id="active-restaurant-tile" data-id='<%=@target_restaurant.id.to_s%>'>
     <ul id='restaurant-tile-details'>
-          <li><%=@target_restaurant.name%></li>
+          <li id="restaurant-tile-details-name"><%=@target_restaurant.name%></li>
           <li><%=@target_restaurant.cuisine%></li>
         </ul>
   </div>
