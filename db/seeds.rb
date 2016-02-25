@@ -26,12 +26,15 @@ end
 
 all_interests = ["fishing", "outdoors", "diy", "dancing", "hella chill", "mustaches", "tennis", "drinking lots of water", "cranberries", "jello", "pumpkins", "ice skating", "rock n' roll", "magic tricks", "CSS"]
 
+
+Interest.create!(name: "programming")
+
 all_interests.each do |interest|
   Interest.create!(name: interest)
 end
 
-
 User.all.each do |user|
+  InterestUser.create(user: user, interest: Interest.first)
   all_ints = Interest.all.shuffle
   first_three = all_ints[(0..2)]
   first_three.each do |int|
