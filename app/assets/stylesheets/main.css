@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  /*border: 1px black dashed;*/
 }
 body, html{
     height:95%;
@@ -10,6 +11,59 @@ body, html{
     background-image: url("whitebricks.jpg");
 }
 
+
+#message-bar {
+   /*margin-top: -150px; negative value of footer height
+    height: 150px;*/
+    clear:both;
+    width:40%;
+    margin:auto;
+    /*float: right;*/
+
+}
+.chat{
+  width:50%;
+}
+
+
+#pic-content{
+  margin: auto;
+  width:80%;
+  display:flex;
+}
+.rec-pic{
+  /*padding-right:3em;*/
+  position:relative;
+  display:inline-block;
+  /*float:left;*/
+  left:0%;
+  height: 25%;
+  width: 20%
+}
+
+.sender-pic{
+  /*padding-right:2em;*/
+  position: relative;
+  display: inline-block;
+  right: 0%;
+  /*float:right;*/
+  height: 25%;
+  width: 20%;
+}
+
+#message-sender{
+  width: 50%;
+  margin:auto;
+  background-color:#114963;
+  border-radius:20px;
+  color: white;
+  padding:20px;
+  /*float: right;*/
+}
+
+#message-recipient {
+  /*float: left;*/
+}
 #main {
   position: relative;
   padding: 20px;
@@ -82,7 +136,7 @@ input.usersubmit {
   font-family: Tahoma, Geneva, sans-serif;
   height: 30px;
   border-radius: 15px;
-  border: 1p solid #999;
+  border: 1px solid #999;
 }
 
 input.usersubmit:hover {
