@@ -1,6 +1,6 @@
 <h1>Welcome to <%=@user.name%>'s profile!</h1>
 <% if @user == current_user %>
-<%= link_to 'edit', edit_user_path(@user) %>
+<%= link_to 'edit your profile', edit_user_path(@user) %>
 <% end %>
 
 <h2><%=@user.name%>'s profile details below:</h2>
