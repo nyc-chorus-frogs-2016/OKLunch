@@ -1,4 +1,5 @@
 # keddyb = User.create!(name:'KeddyB', password: "123", age: 24, background_information: Faker::Hipster.paragraph(2), image: 'http://i2.wp.com/www.powerlineblog.com/ed-assets/2016/01/donald-trump.jpg?fit=1200%2C1200')
+eddie = User.create!(name:'eddie', password: "123", age: 22, background_information: "Hi everyone, my name is Eddie.  I'm not your average guy, I'm an expert at sublime shortcuts and indentation.  I'm also an expert at tackling my lunch and breaking it up into smaller more managable parts.  I hope to meet new lunchmates and enjoy great food.", image:'https://scontent-yyz1-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/12227783_10153145690707624_5580324070154995177_n.jpg?oh=bdea3115640567d879c869c90ed33a19&oe=5763D6A7', is_desperate:true)
 steven = User.create!(name:'steven', password: "123", age: 44, background_information: "Hi everyone, my name is Steven and I really enjoy Halal food.  I'm currently an instructor at DevBootCamp.  I really like Ruby and Python.", image:'https://avatars3.githubusercontent.com/u/1823156?v=3&s=400', is_desperate:true)
 zack = User.create!(name:'zack', password: "123", age: 29, background_information: "Hi yinz!  My name is Zack.  I really really really like bowties.  They're sooooo goooood!", image:'https://avatars3.githubusercontent.com/u/1873205?v=3&s=400', is_desperate:true)
 george = User.create!(name:'george', password: "123", age: 26, background_information: "My name is George, not to be confused with George of the jungle, I cannot begin to tell you how many times I have heard that joke.", image:'https://avatars1.githubusercontent.com/u/9616513?v=3&s=400', is_desperate:true)
@@ -19,7 +20,7 @@ users = User.all[1..-1]
 Restaurant.all.each do |restaurant|
   users.each do |user|
     MatchRestaurant.create!(user: user, restaurant: restaurant, match: true)
-    Swipe.new(swiper:user, swipee:steven, direction: true, restaurant: restaurant).save(validate: false)
+    Swipe.new(swiper:user, swipee:eddie, direction: true, restaurant: restaurant).save(validate: false)
   end
 end
 
