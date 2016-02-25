@@ -1,8 +1,10 @@
 
 <% if current_user.id == message.sender_id %>
+<div id='message-sender'>
 <p><%= message.sender.name %></p>
 <p><%= message.content %></p>
  <span class="glyphicon">sent at <%= std_format_date(message.created_at) %> </span>
+</div>
 <% else %>
 <div class="chat-body clearfix">
   <div class="header">
@@ -10,7 +12,9 @@
       <span class="glyphicon">sent at <%= std_format_date(message.created_at) %> </span>
     </small>
   </div>
+  <div id='message-recipient'>
   <p class="pull-left"><%= message.content %></p>
+</div>
 </div>
 </li>
 <% end %>

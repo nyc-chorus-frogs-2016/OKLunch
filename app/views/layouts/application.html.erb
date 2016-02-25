@@ -63,7 +63,7 @@
 
     </div> <!-- /container -->
 
-  <div class="container marketing p10">
+  <div> <!-- class="container marketing p10"> -->
   <% if flash.any?  %>
   <div id="flash-container">
     <% flash.each do |name, msg| %>
@@ -72,9 +72,9 @@
   </div>
   <% end %>
 
-  <div class="row">
+  <div ><!-- class="row"> -->
     <%= yield %>
-    </div
+    </div>
   </div>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
