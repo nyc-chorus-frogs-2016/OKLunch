@@ -5,7 +5,7 @@
   <% @matchable_users.each do |user|%>
   <div class="card">
     <div class='front'>
-      <%=link_to user.name, user%>
+      <%=link_to user.name, user, class:'user-card-name'%>
       <% if user.is_desperate == true %>
       <%= image_tag('cash.png', size: "25x25") %>
       <% end %>
@@ -29,17 +29,21 @@
         <%= submit_tag "No", class: "submit-no-swipe", :name => nil %>
       </div>
     </div>
-      <div class="back">you only yolo once</div>
+      <div class="back"></div>
     <% end %>
   </div>
 <%end%>
 </div>
 
+<hr />
 <h3> Matches: </h3>
+
 <% if @match_restaurant.user.open_connections.count > 0 %>
-<% @match_restaurant.user.open_connections.each do |match_user|%>
-<%= link_to "#{match_user.other_user(current_user).name}", user_path(match_user.other_user(current_user))%>
-<%end%>
+    <% @match_restaurant.user.open_connections.each do |match_user|%>
+      <div class="just-the-name">
+        <%= link_to "#{match_user.other_user(current_user).name}", user_path(match_user.other_user(current_user)), class:'user-card-name'%>
+      </div>
+    <%end%>
 <% else %>
-No matches yet.
+  No matches yet.
 <% end %>

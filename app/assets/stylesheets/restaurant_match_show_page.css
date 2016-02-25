@@ -15,12 +15,28 @@ height: 300px;
 
 div.front {
   padding: 10px;
+  border-radius: 5%;
   background-color: #87E0b7;
 }
 
 div.back {
   padding: 10px;
+  border-radius: 5%;
   background-color: #87E0b7;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+a.user-card-name {
+	font-size:2em;
+}
+
+div.just-the-name {
+	margin: 20px;
+	padding: 20px;
+	background-color: #87E0b7;
+	border-radius: 5%;
+	display: inline-block;
 }
 
 div.card a {
@@ -28,6 +44,7 @@ text-align: center;
 }
 
 div.yes-no-buttons form {
+margin-top: 1em;
 display: inline-block;
 }
 
